@@ -15,7 +15,10 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
+    "@plasmicapp/loader-gatsby": "^1.0.70",
+    "@plasmicapp/react-web": "^0.2.91",
     "gatsby": "^4.9.0",
+    "p5": "^1.4.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
   }
