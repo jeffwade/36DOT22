@@ -5,7 +5,7 @@
 import React from "react";
 import { classNames } from "@plasmicapp/react-web";
 
-export function InfoIcon(props) {
+export function _36Icon(props) {
   const { className, style, title, ...restProps } = props;
   return (
     <svg
@@ -24,16 +24,19 @@ export function InfoIcon(props) {
       {title && <title>{title}</title>}
 
       <path
+        d={"M0 5V0h7v16H0v-5h3v2h1V9H1V6h3V3H3v2H0z"}
+        fill={"currentColor"}
+      ></path>
+
+      <path
         fillRule={"evenodd"}
         clipRule={"evenodd"}
-        d={
-          "M8 14A6 6 0 108 2a6 6 0 000 12zm1.2-9a1.2 1.2 0 11-2.4 0 1.2 1.2 0 012.4 0zM6.8 7.4h2.4s.3.6.3 1.2c0 .3-.225.6-.45.9-.225.3-.45.6-.45.9 0 .6.6 1.8.6 1.8H6.8s-.6-1.2-.6-1.8c0-.3.225-.6.45-.9.225-.3.45-.6.45-.9 0-.6-.3-1.2-.3-1.2z"
-        }
+        d={"M15 0v5h-3V3h-1v3h4v10H8V0h7zm-4 9h1v4h-1V9z"}
         fill={"currentColor"}
       ></path>
     </svg>
   );
 }
 
-export default InfoIcon;
+export default _36Icon;
 /* prettier-ignore-end */

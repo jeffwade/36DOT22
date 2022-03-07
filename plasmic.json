@@ -42,19 +42,6 @@
           "componentType": "page"
         },
         {
-          "id": "xVVehOIDYb",
-          "name": "Character",
-          "type": "managed",
-          "projectId": "byT51ah2LGWp7TY4NhRWN5",
-          "renderModuleFilePath": "plasmic/36_dot_22/PlasmicCharacter.jsx",
-          "importSpec": {
-            "modulePath": "Character.jsx"
-          },
-          "cssFilePath": "plasmic/36_dot_22/PlasmicCharacter.module.css",
-          "scheme": "blackbox",
-          "componentType": "component"
-        },
-        {
           "id": "plZB1A-Uj8",
           "name": "Grid",
           "type": "managed",
@@ -93,6 +80,32 @@
           "cssFilePath": "plasmic/36_dot_22/PlasmicControls.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "xVVehOIDYb",
+          "name": "P5Sketch",
+          "type": "managed",
+          "projectId": "byT51ah2LGWp7TY4NhRWN5",
+          "renderModuleFilePath": "plasmic/36_dot_22/PlasmicP5Sketch.jsx",
+          "importSpec": {
+            "modulePath": "P5Sketch.jsx"
+          },
+          "cssFilePath": "plasmic/36_dot_22/PlasmicP5Sketch.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "CQfF1mkHx4",
+          "name": "_404",
+          "type": "managed",
+          "projectId": "byT51ah2LGWp7TY4NhRWN5",
+          "renderModuleFilePath": "plasmic/36_dot_22/Plasmic_404.jsx",
+          "importSpec": {
+            "modulePath": "../pages/404.jsx"
+          },
+          "cssFilePath": "plasmic/36_dot_22/Plasmic_404.module.css",
+          "scheme": "blackbox",
+          "componentType": "page"
         }
       ],
       "icons": [
@@ -120,6 +133,11 @@
           "id": "rh7Opgr7v",
           "name": "InfoIcon",
           "moduleFilePath": "plasmic/36_dot_22/icons/PlasmicIcon__Info.jsx"
+        },
+        {
+          "id": "ao2mpgOaJ",
+          "name": "_36Icon",
+          "moduleFilePath": "plasmic/36_dot_22/icons/PlasmicIcon___36.jsx"
         }
       ],
       "images": [],
@@ -147,6 +165,6 @@
   "gatsbyConfig": {
     "pagesDir": "../pages"
   },
-  "cliVersion": "0.1.171",
-  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.171/dist/plasmic.schema.json"
+  "cliVersion": "0.1.173",
+  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.173/dist/plasmic.schema.json"
 }

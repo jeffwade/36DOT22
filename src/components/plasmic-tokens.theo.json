@@ -151,6 +151,16 @@
       }
     },
     {
+      "name": "none",
+      "type": "spacing",
+      "value": "1px",
+      "category": "spacing",
+      "meta": {
+        "projectId": "byT51ah2LGWp7TY4NhRWN5",
+        "id": "DoqQHVVlb"
+      }
+    },
+    {
       "name": "opaque",
       "type": "opacity",
       "value": "1",

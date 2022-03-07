@@ -1,56 +1,54 @@
 .root {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  justify-content: space-around;
-  width: 3rem;
-  height: 7.5rem;
+  justify-content: center;
+  height: 3rem;
   max-width: 100%;
   position: relative;
-  padding-right: var(--token-rbhqPMB6x);
+  width: 100%;
+  min-width: 0;
+  padding: var(--token-K7iAx4WXQ);
 }
 @media (min-width: 768px) {
   .root {
-    width: 4rem;
-    height: 8.5rem;
-    max-height: 13rem;
+    height: 5rem;
+    align-items: center;
+    justify-content: flex-start;
   }
 }
-.svg__bKAc {
+.infoIcon {
   position: relative;
   object-fit: cover;
   max-width: 100%;
-  width: 100%;
+  width: 1em;
   height: 100%;
   opacity: var(--token-nLZiZmfPP);
-  min-width: 0;
+  margin-right: 2rem;
+  flex-shrink: 0;
   min-height: 0;
 }
 @media (min-width: 768px) {
-  .svg__bKAc {
+  .infoIcon {
     width: 100%;
-    height: 100%;
-    max-height: 4rem;
+    max-width: 5rem;
     min-width: 0;
-    min-height: 0;
   }
 }
-.svg__mdBw5 {
+.darkModeIcon {
   position: relative;
   object-fit: cover;
   max-width: 100%;
-  width: 100%;
+  width: 1em;
   height: 100%;
   opacity: var(--token-nLZiZmfPP);
-  min-width: 0;
+  flex-shrink: 0;
   min-height: 0;
 }
 @media (min-width: 768px) {
-  .svg__mdBw5 {
+  .darkModeIcon {
     width: 100%;
-    height: 100%;
-    max-height: 4rem;
+    max-width: 5rem;
     min-width: 0;
-    min-height: 0;
   }
 }

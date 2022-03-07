@@ -9,21 +9,29 @@
 // Plasmic Project: byT51ah2LGWp7TY4NhRWN5
 // Component: xVVehOIDYb
 import * as React from "react";
+import * as p from "@plasmicapp/react-web";
 import {
+  hasVariant,
   classNames,
   createPlasmicElementProxy,
-  deriveRenderOpts
+  deriveRenderOpts,
+  ensureGlobalVariants
 } from "@plasmicapp/react-web";
+import { useMode } from "./PlasmicGlobalVariant__Mode"; // plasmic-import: 9hwEG37kNX/globalVariant
 import "@plasmicapp/react-web/lib/plasmic.css";
 import * as projectcss from "./plasmic_36_dot_22.module.css"; // plasmic-import: byT51ah2LGWp7TY4NhRWN5/projectcss
-import * as sty from "./PlasmicCharacter.module.css"; // plasmic-import: xVVehOIDYb/css
+import * as sty from "./PlasmicP5Sketch.module.css"; // plasmic-import: xVVehOIDYb/css
 
-export const PlasmicCharacter__VariantProps = new Array();
+export const PlasmicP5Sketch__VariantProps = new Array();
 
-export const PlasmicCharacter__ArgProps = new Array();
+export const PlasmicP5Sketch__ArgProps = new Array("sketch", "sketchDiv");
 
-function PlasmicCharacter__RenderFunc(props) {
+function PlasmicP5Sketch__RenderFunc(props) {
   const { variants, args, overrides, forNode } = props;
+  const globalVariants = ensureGlobalVariants({
+    mode: useMode()
+  });
+
   return (
     <div
       data-plasmic-name={"root"}
@@ -35,9 +43,21 @@ function PlasmicCharacter__RenderFunc(props) {
         projectcss.root_reset,
         projectcss.plasmic_default_styles,
         projectcss.plasmic_tokens,
-        sty.root
+        sty.root,
+        {
+          [projectcss.global_mode_dark]: hasVariant(
+            globalVariants,
+            "mode",
+            "dark"
+          )
+        }
       )}
-    />
+    >
+      {p.renderPlasmicSlot({
+        defaultContents: null,
+        value: args.sketchDiv
+      })}
+    </div>
   );
 }
 
@@ -50,11 +70,11 @@ function makeNodeComponent(nodeName) {
     const { variants, args, overrides } = deriveRenderOpts(props, {
       name: nodeName,
       descendantNames: [...PlasmicDescendants[nodeName]],
-      internalArgPropNames: PlasmicCharacter__ArgProps,
-      internalVariantPropNames: PlasmicCharacter__VariantProps
+      internalArgPropNames: PlasmicP5Sketch__ArgProps,
+      internalVariantPropNames: PlasmicP5Sketch__VariantProps
     });
 
-    return PlasmicCharacter__RenderFunc({
+    return PlasmicP5Sketch__RenderFunc({
       variants,
       args,
       overrides,
@@ -62,23 +82,23 @@ function makeNodeComponent(nodeName) {
     });
   };
   if (nodeName === "root") {
-    func.displayName = "PlasmicCharacter";
+    func.displayName = "PlasmicP5Sketch";
   } else {
-    func.displayName = `PlasmicCharacter.${nodeName}`;
+    func.displayName = `PlasmicP5Sketch.${nodeName}`;
   }
   return func;
 }
 
-export const PlasmicCharacter = Object.assign(
-  // Top-level PlasmicCharacter renders the root element
+export const PlasmicP5Sketch = Object.assign(
+  // Top-level PlasmicP5Sketch renders the root element
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    // Metadata about props expected for PlasmicCharacter
-    internalVariantProps: PlasmicCharacter__VariantProps,
-    internalArgProps: PlasmicCharacter__ArgProps
+    // Metadata about props expected for PlasmicP5Sketch
+    internalVariantProps: PlasmicP5Sketch__VariantProps,
+    internalArgProps: PlasmicP5Sketch__ArgProps
   }
 );
 
-export default PlasmicCharacter;
+export default PlasmicP5Sketch;
 /* prettier-ignore-end */

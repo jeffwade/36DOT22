@@ -22,9 +22,9 @@ import { useScreenVariants as useScreenVariantszHblDRlCkyA0O } from "./PlasmicGl
 import "@plasmicapp/react-web/lib/plasmic.css";
 import * as projectcss from "./plasmic_36_dot_22.module.css"; // plasmic-import: byT51ah2LGWp7TY4NhRWN5/projectcss
 import * as sty from "./PlasmicControls.module.css"; // plasmic-import: kU4eFuQrko/css
+import InfoIcon from "./icons/PlasmicIcon__Info"; // plasmic-import: rh7Opgr7v/icon
 import DarkmodeIcon from "./icons/PlasmicIcon__Darkmode"; // plasmic-import: GFhQaEFLo/icon
 import LightmodeIcon from "./icons/PlasmicIcon__Lightmode"; // plasmic-import: ovRZdneIh/icon
-import InfoIcon from "./icons/PlasmicIcon__Info"; // plasmic-import: rh7Opgr7v/icon
 
 export const PlasmicControls__VariantProps = new Array();
 
@@ -54,14 +54,23 @@ function PlasmicControls__RenderFunc(props) {
         }
       )}
     >
+      <InfoIcon
+        data-plasmic-name={"infoIcon"}
+        data-plasmic-override={overrides.infoIcon}
+        className={classNames(projectcss.all, sty.infoIcon)}
+        role={"img"}
+      />
+
       <p.PlasmicIcon
+        data-plasmic-name={"darkModeIcon"}
+        data-plasmic-override={overrides.darkModeIcon}
         PlasmicIconType={
           hasVariant(globalVariants, "mode", "dark")
             ? LightmodeIcon
             : DarkmodeIcon
         }
-        className={classNames(projectcss.all, sty.svg__bKAc, {
-          [sty.svgglobal_mode_dark__bKACcm4Qj]: hasVariant(
+        className={classNames(projectcss.all, sty.darkModeIcon, {
+          [sty.darkModeIconglobal_mode_dark]: hasVariant(
             globalVariants,
             "mode",
             "dark"
@@ -69,17 +78,14 @@ function PlasmicControls__RenderFunc(props) {
         })}
         role={"img"}
       />
-
-      <InfoIcon
-        className={classNames(projectcss.all, sty.svg__mdBw5)}
-        role={"img"}
-      />
     </div>
   );
 }
 
 const PlasmicDescendants = {
-  root: ["root"]
+  root: ["root", "infoIcon", "darkModeIcon"],
+  infoIcon: ["infoIcon"],
+  darkModeIcon: ["darkModeIcon"]
 };
 
 function makeNodeComponent(nodeName) {
@@ -111,6 +117,8 @@ export const PlasmicControls = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
+    infoIcon: makeNodeComponent("infoIcon"),
+    darkModeIcon: makeNodeComponent("darkModeIcon"),
     // Metadata about props expected for PlasmicControls
     internalVariantProps: PlasmicControls__VariantProps,
     internalArgProps: PlasmicControls__ArgProps

@@ -89,6 +89,9 @@ function PlasmicButton__RenderFunc(props) {
             hasVariant(variants, "color", "link") &&
             hasVariant(variants, "size", "minimal"),
           [sty.rootcolor_secondary]: hasVariant(variants, "color", "secondary"),
+          [sty.rootcolor_secondary____focusVisibleWithin]:
+            hasVariant(variants, "color", "secondary") &&
+            triggers.focusVisibleWithin_root,
           [sty.rootglobal_mode_dark]: hasVariant(
             globalVariants,
             "mode",

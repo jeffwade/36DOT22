@@ -67,6 +67,8 @@
   --plasmic-token-primary-shadow: var(--token-yxwuxZ-zB);
   --token-9i1DRUHDD: 1px;
   --plasmic-token-triple: var(--token-9i1DRUHDD);
+  --token-DoqQHVVlb: 1px;
+  --plasmic-token-none: var(--token-DoqQHVVlb);
 }
 
 .plasmic_tokens:where(.global_mode_dark) {
@@ -98,6 +100,8 @@
     --plasmic-token-double: var(--token-K7iAx4WXQ);
     --token-9i1DRUHDD: 3rem;
     --plasmic-token-triple: var(--token-9i1DRUHDD);
+    --token-DoqQHVVlb: 0px;
+    --plasmic-token-none: var(--token-DoqQHVVlb);
   }
 }
 
