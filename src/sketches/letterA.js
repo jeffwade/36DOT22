@@ -1,8 +1,9 @@
 import colors from './colors';
 import front from './images/letterA.png';
 import back from './images/letterA-back-75.png';
+import { initializeCanvas } from './helpers';
 
-const letterA = (p) => {
+const sketch = (p) => {
   class Shot {
     constructor(_id, _x, _y, _radius, _speed, _color) {
       this.id = _id;
@@ -66,8 +67,7 @@ const letterA = (p) => {
   };
 
   p.setup = () => {
-    const frameSize = (p.windowWidth > p.windowHeight) ? 0.9*p.windowHeight : 0.9*p.windowWidth;
-    p.createCanvas(frameSize, frameSize);
+    initializeCanvas(p);
 
     center = {x: p.width/2, y: p.height/2};
 
@@ -109,6 +109,10 @@ const letterA = (p) => {
     let c= p.color(color.h, color.s, color.b, a.full);
     shots.push( new Shot(id, x, y, r, v, c) );
   };
+
+  p.windowResized = () => {
+    initializeCanvas(p);
+  }
 };
 
-export default letterA;
+export default sketch;

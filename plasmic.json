@@ -69,19 +69,6 @@
           "plumeType": "button"
         },
         {
-          "id": "kU4eFuQrko",
-          "name": "Controls",
-          "type": "managed",
-          "projectId": "byT51ah2LGWp7TY4NhRWN5",
-          "renderModuleFilePath": "plasmic/36_dot_22/PlasmicControls.jsx",
-          "importSpec": {
-            "modulePath": "Controls.jsx"
-          },
-          "cssFilePath": "plasmic/36_dot_22/PlasmicControls.module.css",
-          "scheme": "blackbox",
-          "componentType": "component"
-        },
-        {
           "id": "xVVehOIDYb",
           "name": "P5Sketch",
           "type": "managed",
@@ -93,19 +80,6 @@
           "cssFilePath": "plasmic/36_dot_22/PlasmicP5Sketch.module.css",
           "scheme": "blackbox",
           "componentType": "component"
-        },
-        {
-          "id": "CQfF1mkHx4",
-          "name": "_404",
-          "type": "managed",
-          "projectId": "byT51ah2LGWp7TY4NhRWN5",
-          "renderModuleFilePath": "plasmic/36_dot_22/Plasmic_404.jsx",
-          "importSpec": {
-            "modulePath": "../pages/404.jsx"
-          },
-          "cssFilePath": "plasmic/36_dot_22/Plasmic_404.module.css",
-          "scheme": "blackbox",
-          "componentType": "page"
         },
         {
           "id": "Ts9o4wPDsr",
@@ -143,6 +117,32 @@
             "modulePath": "Logo.jsx"
           },
           "cssFilePath": "plasmic/36_dot_22/PlasmicLogo.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "x1WQduodKu",
+          "name": "List",
+          "type": "managed",
+          "projectId": "byT51ah2LGWp7TY4NhRWN5",
+          "renderModuleFilePath": "plasmic/36_dot_22/PlasmicList.jsx",
+          "importSpec": {
+            "modulePath": "../pages/list.jsx"
+          },
+          "cssFilePath": "plasmic/36_dot_22/PlasmicList.module.css",
+          "scheme": "blackbox",
+          "componentType": "page"
+        },
+        {
+          "id": "uQq8eSjRh9",
+          "name": "Thumbnail",
+          "type": "managed",
+          "projectId": "byT51ah2LGWp7TY4NhRWN5",
+          "renderModuleFilePath": "plasmic/36_dot_22/PlasmicThumbnail.jsx",
+          "importSpec": {
+            "modulePath": "Thumbnail.jsx"
+          },
+          "cssFilePath": "plasmic/36_dot_22/PlasmicThumbnail.module.css",
           "scheme": "blackbox",
           "componentType": "component"
         }
@@ -187,6 +187,11 @@
           "id": "PJGoLlwR2",
           "name": "ArrowLeftIcon",
           "moduleFilePath": "plasmic/36_dot_22/icons/PlasmicIcon__ArrowLeft.jsx"
+        },
+        {
+          "id": "osUcStubx",
+          "name": "ListIcon",
+          "moduleFilePath": "plasmic/36_dot_22/icons/PlasmicIcon__List.jsx"
         }
       ],
       "images": [],

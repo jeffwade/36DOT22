@@ -29,11 +29,12 @@ import * as sty from "./PlasmicLatest.module.css"; // plasmic-import: Ts9o4wPDsr
 import InfoIcon from "./icons/PlasmicIcon__Info"; // plasmic-import: rh7Opgr7v/icon
 import DarkmodeIcon from "./icons/PlasmicIcon__Darkmode"; // plasmic-import: GFhQaEFLo/icon
 import ArrowLeftIcon from "./icons/PlasmicIcon__ArrowLeft"; // plasmic-import: PJGoLlwR2/icon
+import ListIcon from "./icons/PlasmicIcon__List"; // plasmic-import: osUcStubx/icon
 import ArrowRightIcon from "./icons/PlasmicIcon__ArrowRight"; // plasmic-import: ON7qZLXAQxN/icon
 
 export const PlasmicLatest__VariantProps = new Array();
 
-export const PlasmicLatest__ArgProps = new Array("description", "letter");
+export const PlasmicLatest__ArgProps = new Array();
 
 function PlasmicLatest__RenderFunc(props) {
   const { variants, args, overrides, forNode } = props;
@@ -72,9 +73,9 @@ function PlasmicLatest__RenderFunc(props) {
               }
             )}
           >
-            <div
-              className={classNames(projectcss.all, sty.freeBox___5UgyE, {
-                [sty.freeBoxglobal_mode_dark___5UgyEcm4Qj]: hasVariant(
+            <nav
+              className={classNames(projectcss.all, sty.nav__y4KKq, {
+                [sty.navglobal_mode_dark__y4KKQcm4Qj]: hasVariant(
                   globalVariants,
                   "mode",
                   "dark"
@@ -100,6 +101,7 @@ function PlasmicLatest__RenderFunc(props) {
                 data-plasmic-override={overrides.link}
                 className={classNames(projectcss.all, projectcss.a, sty.link)}
                 component={Link}
+                href={"/"}
                 platform={"gatsby"}
               >
                 {(
@@ -128,15 +130,17 @@ function PlasmicLatest__RenderFunc(props) {
                   />
                 }
               />
-            </div>
+            </nav>
 
             {(
               hasVariant(globalVariants, "screen", "desktopOnly") ? true : true
             ) ? (
               <p.Stack
                 as={"div"}
+                data-plasmic-name={"freeBox"}
+                data-plasmic-override={overrides.freeBox}
                 hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__qgyOv)}
+                className={classNames(projectcss.all, sty.freeBox)}
               >
                 {true ? (
                   <P5Sketch
@@ -145,17 +149,12 @@ function PlasmicLatest__RenderFunc(props) {
                     className={classNames("__wab_instance", sty.p5Sketch)}
                   />
                 ) : null}
-                {p.renderPlasmicSlot({
-                  defaultContents: "Enter some text",
-                  value: args.description,
-                  className: classNames(sty.slotTargetDescription)
-                })}
               </p.Stack>
             ) : null}
 
-            <div
-              className={classNames(projectcss.all, sty.freeBox__yl7QF, {
-                [sty.freeBoxglobal_mode_dark__yl7QFcm4Qj]: hasVariant(
+            <nav
+              className={classNames(projectcss.all, sty.nav__yl7QF, {
+                [sty.navglobal_mode_dark__yl7QFcm4Qj]: hasVariant(
                   globalVariants,
                   "mode",
                   "dark"
@@ -176,11 +175,25 @@ function PlasmicLatest__RenderFunc(props) {
                 }
               />
 
-              {p.renderPlasmicSlot({
-                defaultContents: "A",
-                value: args.letter,
-                className: classNames(sty.slotTargetLetter)
-              })}
+              {(
+                hasVariant(globalVariants, "screen", "desktopOnly")
+                  ? true
+                  : true
+              ) ? (
+                <ControlButton
+                  data-plasmic-name={"prev2"}
+                  data-plasmic-override={overrides.prev2}
+                  className={classNames("__wab_instance", sty.prev2)}
+                  icon={
+                    <ListIcon
+                      data-plasmic-name={"infoIcon5"}
+                      data-plasmic-override={overrides.infoIcon5}
+                      className={classNames(projectcss.all, sty.infoIcon5)}
+                      role={"img"}
+                    />
+                  }
+                />
+              ) : null}
 
               <ControlButton
                 data-plasmic-name={"next"}
@@ -195,7 +208,7 @@ function PlasmicLatest__RenderFunc(props) {
                   />
                 }
               />
-            </div>
+            </nav>
           </div>
         ) : null}
       </div>
@@ -212,9 +225,12 @@ const PlasmicDescendants = {
     "logo",
     "modetoggle",
     "infoIcon",
+    "freeBox",
     "p5Sketch",
     "prev",
     "infoIcon3",
+    "prev2",
+    "infoIcon5",
     "next",
     "infoIcon4"
   ],
@@ -225,9 +241,12 @@ const PlasmicDescendants = {
   logo: ["logo"],
   modetoggle: ["modetoggle", "infoIcon"],
   infoIcon: ["infoIcon"],
+  freeBox: ["freeBox", "p5Sketch"],
   p5Sketch: ["p5Sketch"],
   prev: ["prev", "infoIcon3"],
   infoIcon3: ["infoIcon3"],
+  prev2: ["prev2", "infoIcon5"],
+  infoIcon5: ["infoIcon5"],
   next: ["next", "infoIcon4"],
   infoIcon4: ["infoIcon4"]
 };
@@ -267,9 +286,12 @@ export const PlasmicLatest = Object.assign(
     logo: makeNodeComponent("logo"),
     modetoggle: makeNodeComponent("modetoggle"),
     infoIcon: makeNodeComponent("infoIcon"),
+    freeBox: makeNodeComponent("freeBox"),
     p5Sketch: makeNodeComponent("p5Sketch"),
     prev: makeNodeComponent("prev"),
     infoIcon3: makeNodeComponent("infoIcon3"),
+    prev2: makeNodeComponent("prev2"),
+    infoIcon5: makeNodeComponent("infoIcon5"),
     next: makeNodeComponent("next"),
     infoIcon4: makeNodeComponent("infoIcon4"),
     // Metadata about props expected for PlasmicLatest

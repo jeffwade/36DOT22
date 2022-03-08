@@ -25,7 +25,7 @@ import * as sty from "./PlasmicLogo.module.css"; // plasmic-import: Ez2OM_1IjG/c
 import ThirtysixIcon from "./icons/PlasmicIcon__Thirtysix"; // plasmic-import: ao2mpgOaJ/icon
 import TwentytwoIcon from "./icons/PlasmicIcon__Twentytwo"; // plasmic-import: rKfHxY0N0/icon
 
-export const PlasmicLogo__VariantProps = new Array();
+export const PlasmicLogo__VariantProps = new Array("neon");
 
 export const PlasmicLogo__ArgProps = new Array();
 
@@ -84,14 +84,12 @@ function PlasmicLogo__RenderFunc(props) {
       ]}
     >
       <ThirtysixIcon
-        className={classNames(projectcss.all, sty.svg__fKkRx, {
-          [sty.svg___focusVisibleWithin__fKkRx0EbNh]:
-            triggers.focusVisibleWithin_root,
-          [sty.svgglobal_mode_dark__fKkRXcm4Qj]: hasVariant(
-            globalVariants,
-            "mode",
-            "dark"
-          )
+        data-plasmic-name={"svg"}
+        data-plasmic-override={overrides.svg}
+        className={classNames(projectcss.all, sty.svg, {
+          [sty.svg___focusVisibleWithin]: triggers.focusVisibleWithin_root,
+          [sty.svgglobal_mode_dark]: hasVariant(globalVariants, "mode", "dark"),
+          [sty.svgneon]: hasVariant(variants, "neon", "neon")
         })}
         role={"img"}
       />
@@ -105,9 +103,15 @@ function PlasmicLogo__RenderFunc(props) {
           ? true
           : triggers.hover_root
           ? true
+          : hasVariant(variants, "neon", "neon")
+          ? true
+          : hasVariant(globalVariants, "mode", "dark")
+          ? true
           : false
       ) ? (
         <p.PlasmicIcon
+          data-plasmic-name={"twentytwo"}
+          data-plasmic-override={overrides.twentytwo}
           PlasmicIconType={
             triggers.active_root
               ? TwentytwoIcon
@@ -117,11 +121,20 @@ function PlasmicLogo__RenderFunc(props) {
               ? TwentytwoIcon
               : triggers.hover_root
               ? TwentytwoIcon
+              : hasVariant(variants, "neon", "neon")
+              ? TwentytwoIcon
               : ThirtysixIcon
           }
-          className={classNames(projectcss.all, sty.svg__tWaI4, {
-            [sty.svg___focusVisibleWithin__tWaI40EbNh]:
-              triggers.focusVisibleWithin_root
+          className={classNames(projectcss.all, sty.twentytwo, {
+            [sty.twentytwo___focusVisibleWithin]:
+              triggers.focusVisibleWithin_root,
+            [sty.twentytwoglobal_mode_dark]: hasVariant(
+              globalVariants,
+              "mode",
+              "dark"
+            ),
+
+            [sty.twentytwoneon]: hasVariant(variants, "neon", "neon")
           })}
           role={"img"}
         />
@@ -131,7 +144,9 @@ function PlasmicLogo__RenderFunc(props) {
 }
 
 const PlasmicDescendants = {
-  root: ["root"]
+  root: ["root", "svg", "twentytwo"],
+  svg: ["svg"],
+  twentytwo: ["twentytwo"]
 };
 
 function makeNodeComponent(nodeName) {
@@ -163,6 +178,8 @@ export const PlasmicLogo = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
+    svg: makeNodeComponent("svg"),
+    twentytwo: makeNodeComponent("twentytwo"),
     // Metadata about props expected for PlasmicLogo
     internalVariantProps: PlasmicLogo__VariantProps,
     internalArgProps: PlasmicLogo__ArgProps

@@ -17,13 +17,16 @@ import {
   deriveRenderOpts,
   ensureGlobalVariants
 } from "@plasmicapp/react-web";
+import ControlButton from "../../ControlButton"; // plasmic-import: MeM-3KPeHe/component
+import Logo from "../../Logo"; // plasmic-import: Ez2OM_1IjG/component
 import Button from "../../Button"; // plasmic-import: RXJa6ld21ci/component
-import Controls from "../../Controls"; // plasmic-import: kU4eFuQrko/component
 import { useScreenVariants as useScreenVariantszHblDRlCkyA0O } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: ZHblDRlCkyA0O/globalVariant
 import { useMode } from "./PlasmicGlobalVariant__Mode"; // plasmic-import: 9hwEG37kNX/globalVariant
 import "@plasmicapp/react-web/lib/plasmic.css";
 import * as projectcss from "./plasmic_36_dot_22.module.css"; // plasmic-import: byT51ah2LGWp7TY4NhRWN5/projectcss
 import * as sty from "./PlasmicHomepage.module.css"; // plasmic-import: 0ttrvnk3PBsW/css
+import InfoIcon from "./icons/PlasmicIcon__Info"; // plasmic-import: rh7Opgr7v/icon
+import DarkmodeIcon from "./icons/PlasmicIcon__Darkmode"; // plasmic-import: GFhQaEFLo/icon
 
 export const PlasmicHomepage__VariantProps = new Array();
 
@@ -64,6 +67,12 @@ function PlasmicHomepage__RenderFunc(props) {
                   globalVariants,
                   "mode",
                   "dark"
+                ),
+
+                [sty.rootglobal_mode_dark]: hasVariant(
+                  globalVariants,
+                  "mode",
+                  "dark"
                 )
               }
             )}
@@ -75,66 +84,92 @@ function PlasmicHomepage__RenderFunc(props) {
               hasGap={true}
               className={classNames(projectcss.all, sty.header)}
             >
-              {true ? (
+              {(
+                hasVariant(globalVariants, "screen", "desktopOnly")
+                  ? true
+                  : true
+              ) ? (
                 <div
-                  data-plasmic-name={"headline"}
-                  data-plasmic-override={overrides.headline}
-                  className={classNames(projectcss.all, sty.headline)}
+                  className={classNames(projectcss.all, sty.freeBox__qSoMw, {
+                    [sty.freeBoxglobal_mode_dark__qSoMWcm4Qj]: hasVariant(
+                      globalVariants,
+                      "mode",
+                      "dark"
+                    )
+                  })}
                 >
-                  <h1
-                    data-plasmic-name={"h1"}
-                    data-plasmic-override={overrides.h1}
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.h1,
-                      projectcss.__wab_text,
-                      sty.h1
-                    )}
-                  >
-                    {"36 Days of Type"}
-                  </h1>
+                  <ControlButton
+                    data-plasmic-name={"info2"}
+                    data-plasmic-override={overrides.info2}
+                    className={classNames("__wab_instance", sty.info2)}
+                    icon={
+                      <InfoIcon
+                        data-plasmic-name={"infoicon"}
+                        data-plasmic-override={overrides.infoicon}
+                        className={classNames(projectcss.all, sty.infoicon)}
+                        role={"img"}
+                      />
+                    }
+                  />
 
-                  {(
-                    hasVariant(globalVariants, "screen", "desktopOnly")
-                      ? true
-                      : true
-                  ) ? (
-                    <p.Stack
-                      as={"div"}
-                      data-plasmic-name={"freeBox"}
-                      data-plasmic-override={overrides.freeBox}
-                      hasGap={true}
-                      className={classNames(projectcss.all, sty.freeBox)}
-                    >
-                      <h2
-                        data-plasmic-name={"h2"}
-                        data-plasmic-override={overrides.h2}
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.h2,
-                          projectcss.__wab_text,
-                          sty.h2
-                        )}
-                      >
-                        {"2022 Edition"}
-                      </h2>
-
-                      <h3
-                        data-plasmic-name={"byline"}
-                        data-plasmic-override={overrides.byline}
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.h3,
-                          projectcss.__wab_text,
-                          sty.byline
-                        )}
-                      >
-                        {"by jeff wade"}
-                      </h3>
-                    </p.Stack>
-                  ) : null}
+                  <ControlButton
+                    data-plasmic-name={"modetoggle"}
+                    data-plasmic-override={overrides.modetoggle}
+                    className={classNames("__wab_instance", sty.modetoggle)}
+                    icon={
+                      <DarkmodeIcon
+                        data-plasmic-name={"darkmodeIcon"}
+                        data-plasmic-override={overrides.darkmodeIcon}
+                        className={classNames(projectcss.all, sty.darkmodeIcon)}
+                        role={"img"}
+                      />
+                    }
+                  />
                 </div>
               ) : null}
+              {(
+                hasVariant(globalVariants, "screen", "desktopOnly")
+                  ? true
+                  : true
+              ) ? (
+                <Logo
+                  data-plasmic-name={"logo"}
+                  data-plasmic-override={overrides.logo}
+                  className={classNames("__wab_instance", sty.logo)}
+                />
+              ) : null}
+
+              <div className={classNames(projectcss.all, sty.freeBox__sPasa)}>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text___70UnO
+                  )}
+                >
+                  {"days"}
+                </div>
+
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__bbuH
+                  )}
+                >
+                  {"of"}
+                </div>
+
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__evUhE
+                  )}
+                >
+                  {"type"}
+                </div>
+              </div>
             </p.Stack>
 
             <p.Stack
@@ -153,14 +188,17 @@ function PlasmicHomepage__RenderFunc(props) {
 
               <Button
                 className={classNames("__wab_instance", sty.button__waSwW)}
+                link={
+                  hasVariant(globalVariants, "screen", "desktopOnly")
+                    ? "/latest"
+                    : undefined
+                }
               >
                 <div
-                  data-plasmic-name={"text"}
-                  data-plasmic-override={overrides.text}
                   className={classNames(
                     projectcss.all,
                     projectcss.__wab_text,
-                    sty.text
+                    sty.text__sxMwY
                   )}
                 >
                   {"Latest"}
@@ -168,11 +206,64 @@ function PlasmicHomepage__RenderFunc(props) {
               </Button>
             </p.Stack>
 
-            <Controls
-              data-plasmic-name={"controls"}
-              data-plasmic-override={overrides.controls}
-              className={classNames("__wab_instance", sty.controls)}
-            />
+            {true ? (
+              <div
+                data-plasmic-name={"info"}
+                data-plasmic-override={overrides.info}
+                className={classNames(projectcss.all, sty.info)}
+              >
+                <h1
+                  data-plasmic-name={"h1"}
+                  data-plasmic-override={overrides.h1}
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.h1,
+                    projectcss.__wab_text,
+                    sty.h1
+                  )}
+                >
+                  {"36 Days of Type"}
+                </h1>
+
+                {(
+                  hasVariant(globalVariants, "screen", "desktopOnly")
+                    ? true
+                    : true
+                ) ? (
+                  <p.Stack
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__gQtHi)}
+                  >
+                    <h2
+                      data-plasmic-name={"h2"}
+                      data-plasmic-override={overrides.h2}
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h2,
+                        projectcss.__wab_text,
+                        sty.h2
+                      )}
+                    >
+                      {"2022 Edition"}
+                    </h2>
+
+                    <h3
+                      data-plasmic-name={"byline"}
+                      data-plasmic-override={overrides.byline}
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h3,
+                        projectcss.__wab_text,
+                        sty.byline
+                      )}
+                    >
+                      {"by jeff wade"}
+                    </h3>
+                  </p.Stack>
+                ) : null}
+              </div>
+            ) : null}
           </p.Stack>
         ) : null}
       </div>
@@ -184,25 +275,29 @@ const PlasmicDescendants = {
   root: [
     "root",
     "header",
-    "headline",
-    "h1",
-    "freeBox",
-    "h2",
-    "byline",
+    "info2",
+    "infoicon",
+    "modetoggle",
+    "darkmodeIcon",
+    "logo",
     "footer",
-    "text",
-    "controls"
+    "info",
+    "h1",
+    "h2",
+    "byline"
   ],
 
-  header: ["header", "headline", "h1", "freeBox", "h2", "byline"],
-  headline: ["headline", "h1", "freeBox", "h2", "byline"],
+  header: ["header", "info2", "infoicon", "modetoggle", "darkmodeIcon", "logo"],
+  info2: ["info2", "infoicon"],
+  infoicon: ["infoicon"],
+  modetoggle: ["modetoggle", "darkmodeIcon"],
+  darkmodeIcon: ["darkmodeIcon"],
+  logo: ["logo"],
+  footer: ["footer"],
+  info: ["info", "h1", "h2", "byline"],
   h1: ["h1"],
-  freeBox: ["freeBox", "h2", "byline"],
   h2: ["h2"],
-  byline: ["byline"],
-  footer: ["footer", "text"],
-  text: ["text"],
-  controls: ["controls"]
+  byline: ["byline"]
 };
 
 function makeNodeComponent(nodeName) {
@@ -235,14 +330,16 @@ export const PlasmicHomepage = Object.assign(
   {
     // Helper components rendering sub-elements
     header: makeNodeComponent("header"),
-    headline: makeNodeComponent("headline"),
+    info2: makeNodeComponent("info2"),
+    infoicon: makeNodeComponent("infoicon"),
+    modetoggle: makeNodeComponent("modetoggle"),
+    darkmodeIcon: makeNodeComponent("darkmodeIcon"),
+    logo: makeNodeComponent("logo"),
+    footer: makeNodeComponent("footer"),
+    info: makeNodeComponent("info"),
     h1: makeNodeComponent("h1"),
-    freeBox: makeNodeComponent("freeBox"),
     h2: makeNodeComponent("h2"),
     byline: makeNodeComponent("byline"),
-    footer: makeNodeComponent("footer"),
-    text: makeNodeComponent("text"),
-    controls: makeNodeComponent("controls"),
     // Metadata about props expected for PlasmicHomepage
     internalVariantProps: PlasmicHomepage__VariantProps,
     internalArgProps: PlasmicHomepage__ArgProps

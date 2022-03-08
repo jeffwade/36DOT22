@@ -1,3 +1,13 @@
+import colors from './colors';
+
+export const initializeCanvas = (p) => {
+  const frameSize = (p.windowWidth > 768 ) ? 0.6*p.windowHeight : 0.8*p.windowWidth;
+  let cnvs = p.createCanvas(frameSize, frameSize);
+  p.background(p.color(colors.black.h, colors.black.s, colors.black.s));
+
+  return cnvs;
+  }
+
 export const blurHSB = (p, h, s, b, a) => {
   p.push();
     p.fill(p.color(h, s, b, a));

@@ -21,21 +21,13 @@ import {
   ensureGlobalVariants
 } from "@plasmicapp/react-web";
 import { useMode } from "./PlasmicGlobalVariant__Mode"; // plasmic-import: 9hwEG37kNX/globalVariant
-import { useScreenVariants as useScreenVariantszHblDRlCkyA0O } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: ZHblDRlCkyA0O/globalVariant
 import "@plasmicapp/react-web/lib/plasmic.css";
 import * as projectcss from "./plasmic_36_dot_22.module.css"; // plasmic-import: byT51ah2LGWp7TY4NhRWN5/projectcss
 import * as sty from "./PlasmicButton.module.css"; // plasmic-import: RXJa6ld21ci/css
 import ChecksvgIcon from "./icons/PlasmicIcon__Checksvg"; // plasmic-import: VTvT8L0CPnm/icon
 import ArrowRightIcon from "./icons/PlasmicIcon__ArrowRight"; // plasmic-import: ON7qZLXAQxN/icon
 
-export const PlasmicButton__VariantProps = new Array(
-  "showStartIcon",
-  "showEndIcon",
-  "isDisabled",
-  "shape",
-  "size",
-  "color"
-);
+export const PlasmicButton__VariantProps = new Array("size", "color");
 
 export const PlasmicButton__ArgProps = new Array(
   "children",
@@ -56,8 +48,7 @@ function PlasmicButton__RenderFunc(props) {
   };
 
   const globalVariants = ensureGlobalVariants({
-    mode: useMode(),
-    screen: useScreenVariantszHblDRlCkyA0O()
+    mode: useMode()
   });
 
   return (
@@ -84,10 +75,6 @@ function PlasmicButton__RenderFunc(props) {
 
           [sty.root___focusVisibleWithin]: triggers.focusVisibleWithin_root,
           [sty.rootcolor_clear]: hasVariant(variants, "color", "clear"),
-          [sty.rootcolor_link]: hasVariant(variants, "color", "link"),
-          [sty.rootcolor_link_size_minimal]:
-            hasVariant(variants, "color", "link") &&
-            hasVariant(variants, "size", "minimal"),
           [sty.rootcolor_secondary]: hasVariant(variants, "color", "secondary"),
           [sty.rootcolor_secondary____focusVisibleWithin]:
             hasVariant(variants, "color", "secondary") &&
@@ -98,58 +85,12 @@ function PlasmicButton__RenderFunc(props) {
             "dark"
           ),
 
-          [sty.rootisDisabled]: hasVariant(
-            variants,
-            "isDisabled",
-            "isDisabled"
-          ),
-
-          [sty.rootshape_round]: hasVariant(variants, "shape", "round"),
-          [sty.rootshape_round_size_compact]:
-            hasVariant(variants, "shape", "round") &&
-            hasVariant(variants, "size", "compact"),
-          [sty.rootshape_rounded]: hasVariant(variants, "shape", "rounded"),
-          [sty.rootshape_rounded_showStartIcon]:
-            hasVariant(variants, "shape", "rounded") &&
-            hasVariant(variants, "showStartIcon", "showStartIcon"),
-          [sty.rootshape_sharp]: hasVariant(variants, "shape", "sharp"),
-          [sty.rootshowEndIcon]: hasVariant(
-            variants,
-            "showEndIcon",
-            "showEndIcon"
-          ),
-
-          [sty.rootshowEndIcon_shape_rounded]:
-            hasVariant(variants, "showEndIcon", "showEndIcon") &&
-            hasVariant(variants, "shape", "rounded"),
-          [sty.rootshowStartIcon]: hasVariant(
-            variants,
-            "showStartIcon",
-            "showStartIcon"
-          ),
-
-          [sty.rootsize_compact]: hasVariant(variants, "size", "compact"),
-          [sty.rootsize_compact_shape_rounded]:
-            hasVariant(variants, "size", "compact") &&
-            hasVariant(variants, "shape", "rounded"),
-          [sty.rootsize_compact_showEndIcon]:
-            hasVariant(variants, "size", "compact") &&
-            hasVariant(variants, "showEndIcon", "showEndIcon"),
-          [sty.rootsize_compact_showStartIcon]:
-            hasVariant(variants, "size", "compact") &&
-            hasVariant(variants, "showStartIcon", "showStartIcon"),
-          [sty.rootsize_compact_showStartIcon_showEndIcon]:
-            hasVariant(variants, "size", "compact") &&
-            hasVariant(variants, "showStartIcon", "showStartIcon") &&
-            hasVariant(variants, "showEndIcon", "showEndIcon"),
           [sty.rootsize_minimal]: hasVariant(variants, "size", "minimal")
         }
       )}
       data-plasmic-trigger-props={[triggerRootFocusVisibleWithinProps]}
     >
-      {(
-        hasVariant(variants, "showStartIcon", "showStartIcon") ? true : false
-      ) ? (
+      {false ? (
         <div
           data-plasmic-name={"startIconContainer"}
           data-plasmic-override={overrides.startIconContainer}
@@ -158,15 +99,6 @@ function PlasmicButton__RenderFunc(props) {
               variants,
               "color",
               "secondary"
-            ),
-
-            [sty.startIconContainershape_rounded_showStartIcon]:
-              hasVariant(variants, "shape", "rounded") &&
-              hasVariant(variants, "showStartIcon", "showStartIcon"),
-            [sty.startIconContainershowStartIcon]: hasVariant(
-              variants,
-              "showStartIcon",
-              "showStartIcon"
             )
           })}
         >
@@ -186,22 +118,10 @@ function PlasmicButton__RenderFunc(props) {
                 "clear"
               ),
 
-              [sty.slotTargetStartIconcolor_link]: hasVariant(
-                variants,
-                "color",
-                "link"
-              ),
-
               [sty.slotTargetStartIconcolor_secondary]: hasVariant(
                 variants,
                 "color",
                 "secondary"
-              ),
-
-              [sty.slotTargetStartIconshowStartIcon]: hasVariant(
-                variants,
-                "showStartIcon",
-                "showStartIcon"
               )
             })
           })}
@@ -214,24 +134,6 @@ function PlasmicButton__RenderFunc(props) {
         className={classNames(projectcss.all, sty.contentContainer, {
           [sty.contentContainer___focusVisibleWithin]:
             triggers.focusVisibleWithin_root,
-          [sty.contentContainerisDisabled]: hasVariant(
-            variants,
-            "isDisabled",
-            "isDisabled"
-          ),
-
-          [sty.contentContainershape_rounded]: hasVariant(
-            variants,
-            "shape",
-            "rounded"
-          ),
-
-          [sty.contentContainershowEndIcon]: hasVariant(
-            variants,
-            "showEndIcon",
-            "showEndIcon"
-          ),
-
           [sty.contentContainersize_minimal]: hasVariant(
             variants,
             "size",
@@ -251,43 +153,10 @@ function PlasmicButton__RenderFunc(props) {
               "clear"
             ),
 
-            [sty.slotTargetChildrencolor_link]: hasVariant(
-              variants,
-              "color",
-              "link"
-            ),
-
-            [sty.slotTargetChildrencolor_link_size_minimal]:
-              hasVariant(variants, "color", "link") &&
-              hasVariant(variants, "size", "minimal"),
             [sty.slotTargetChildrencolor_secondary]: hasVariant(
               variants,
               "color",
               "secondary"
-            ),
-
-            [sty.slotTargetChildrenisDisabled]: hasVariant(
-              variants,
-              "isDisabled",
-              "isDisabled"
-            ),
-
-            [sty.slotTargetChildrenshape_rounded]: hasVariant(
-              variants,
-              "shape",
-              "rounded"
-            ),
-
-            [sty.slotTargetChildrenshowEndIcon]: hasVariant(
-              variants,
-              "showEndIcon",
-              "showEndIcon"
-            ),
-
-            [sty.slotTargetChildrenshowStartIcon]: hasVariant(
-              variants,
-              "showStartIcon",
-              "showStartIcon"
             ),
 
             [sty.slotTargetChildrensize_minimal]: hasVariant(
@@ -299,17 +168,11 @@ function PlasmicButton__RenderFunc(props) {
         })}
       </div>
 
-      {(hasVariant(variants, "showEndIcon", "showEndIcon") ? true : false) ? (
+      {false ? (
         <div
           data-plasmic-name={"endIconContainer"}
           data-plasmic-override={overrides.endIconContainer}
-          className={classNames(projectcss.all, sty.endIconContainer, {
-            [sty.endIconContainershowEndIcon]: hasVariant(
-              variants,
-              "showEndIcon",
-              "showEndIcon"
-            )
-          })}
+          className={classNames(projectcss.all, sty.endIconContainer)}
         >
           {p.renderPlasmicSlot({
             defaultContents: (
@@ -325,18 +188,6 @@ function PlasmicButton__RenderFunc(props) {
                 variants,
                 "color",
                 "clear"
-              ),
-
-              [sty.slotTargetEndIconcolor_link]: hasVariant(
-                variants,
-                "color",
-                "link"
-              ),
-
-              [sty.slotTargetEndIconshowEndIcon]: hasVariant(
-                variants,
-                "showEndIcon",
-                "showEndIcon"
               )
             })
           })}

@@ -11,9 +11,9 @@
   --plasmic-token-grey-ground: var(--token-vjABvgEGo);
   --token-P8Lw5iZm3: #0feebb;
   --plasmic-token-primary-high: var(--token-P8Lw5iZm3);
-  --token-GtANXasSP: 5rem;
+  --token-GtANXasSP: 2.5rem;
   --plasmic-token-h-1: var(--token-GtANXasSP);
-  --token-GtANXasSP: 5rem;
+  --token-GtANXasSP: 2.5rem;
   --plasmic-token-h-1: var(--token-GtANXasSP);
   --token-8IV3NhML6: #158c92;
   --plasmic-token-primary-low: var(--token-8IV3NhML6);
@@ -94,7 +94,7 @@
 
 @media (min-width: 768px) {
   .plasmic_tokens {
-    --token-GtANXasSP: 10rem;
+    --token-GtANXasSP: 3rem;
     --plasmic-token-h-1: var(--token-GtANXasSP);
     --token-2LNh5O8my: 4rem;
     --plasmic-token-h-2: var(--token-2LNh5O8my);

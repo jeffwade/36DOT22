@@ -1,58 +1,57 @@
-import { blur } from './helpers';
+import { initializeCanvas, blurHSB } from './helpers';
 import colors from './colors';
-import p5, { 
-  setup, draw,
-  createCanvas, windowResized,
-  windowWidth, windowHeight, width, height,
-  push, pop, translate,
-  mouseX, mouseY,
-  color, colorMode, HSB,
-  fill, noStroke, background,
-  circle,
-  ellipseMode, RADIUS,
-  atan2,
-  frameRate,
-  cursor,
-} from 'p5';
 
 
-const letterA = () => {
+const sketch = (p) => {
+  initializeCanvas(p);
 
   // vectors
-  const center = {x: width/2, y: height/2};
+  const center = {x: pwidth/2, y: height/2};
 
-  // colors
+  // create an array of the color names
+  const colorKeys = Object.keys(colors);
+  // remove opacity from array
+  colorKeys.splice(0, 1);
+  // a for alpha
+  const a = colors.opacity;
+
+  // add named colors
   const { black, white, } = colors;
   let fgColor, bgColor;
 
   let cnvs;
 
-  setup = () => {
-    const frameSize = (windowWidth > windowHeight) ? 0.6*windowHeight : 0.6*windowWidth;
-    cnvs = createCanvas(frameSize, frameSize);
-
-    colorMode(HSB, 360, 100, 100, 100);
-    fgColor = color(black.h, black.s, black.b, black.a);
-    bgColor = color(white.h, white.s, white.b, white.a);
-
-    ellipseMode(RADIUS);
-
-    cursor('pointer');
-    frameRate(30);
-
-    background(bgColor);
+  p.preload = () => {
+    topImg = p.loadImage(front);
+    bottomImg = p.loadImage(back);
   };
 
-  draw = () => {
-    push();
-    translate(center.x, center.y);
-    fill(fgColor);
-    noStroke();
-    circle(0,0,20);
-    pop();
+  p.setup = () => {
+    initializeCanvas(p);
 
-    blur();
+    p.colorMode(p.HSB, 360, 100, 100, 100);
+    fgColor = p.color(black.h, black.s, black.b, black.a);
+    bgColor = p.color(white.h, white.s, white.b, white.a);
+
+    p.ellipseMode(p.RADIUS);
+
+    p.noCursor();
+    p.frameRate(30);
+
+    p.background(bgColor);
+  };
+
+  p.draw = () => {
+    p.push();
+    p.translate(center.x, center.y);
+    p.fill(fgColor);
+    p.noStroke();
+    p.circle(0,0,20);
+    p.pop();
+
+    p.image(positive, 0, 0, p.width, p.height);
+    blurHSB(p, black.h, black.s, black.b, a.low);
   };
 };
 
-export default letterA;
+export default sketch;
