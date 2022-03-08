@@ -69,6 +69,8 @@
   --plasmic-token-triple: var(--token-9i1DRUHDD);
   --token-DoqQHVVlb: 1px;
   --plasmic-token-none: var(--token-DoqQHVVlb);
+  --token-GFemPdq3k: #fc65ff;
+  --plasmic-token-pink: var(--token-GFemPdq3k);
 }
 
 .plasmic_tokens:where(.global_mode_dark) {
@@ -86,6 +88,8 @@
   --plasmic-token-secondary-high: var(--token-_K2tTfkwX);
   --token-gtT4u1QYU: #bc4bdf;
   --plasmic-token-secondary-low: var(--token-gtT4u1QYU);
+  --token-GFemPdq3k: #d958dc;
+  --plasmic-token-pink: var(--token-GFemPdq3k);
 }
 
 @media (min-width: 768px) {

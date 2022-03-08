@@ -1,0 +1,121 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 3rem;
+  height: 3rem;
+  justify-content: center;
+  align-items: center;
+}
+.root:hover {
+  display: block;
+}
+.root:focus-within {
+  display: block;
+  outline: none;
+}
+.root___focusVisibleWithin {
+  display: block;
+  outline: none;
+}
+.root:active {
+  display: block;
+}
+.svg__fKkRx {
+  position: relative;
+  object-fit: cover;
+  max-width: 100%;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+}
+.root:hover .svg__fKkRx {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+}
+.root:focus-within .svg__fKkRx {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  outline: none;
+}
+.root .svg___focusVisibleWithin__fKkRx0EbNh {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  outline: none;
+}
+.root:active .svg__fKkRx {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+}
+.svg__tWaI4 {
+  position: relative;
+  object-fit: cover;
+  max-width: 100%;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+}
+.root:hover .svg__tWaI4 {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  color: var(--token-GFemPdq3k);
+  min-width: 0;
+  min-height: 0;
+}
+.root:focus-within .svg__tWaI4 {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  color: var(--token-GFemPdq3k);
+  min-width: 0;
+  min-height: 0;
+  outline: none;
+}
+.root .svg___focusVisibleWithin__tWaI40EbNh {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  color: var(--token-GFemPdq3k);
+  min-width: 0;
+  min-height: 0;
+  outline: none;
+}
+.root:active .svg__tWaI4 {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  color: var(--token-P8Lw5iZm3);
+  min-width: 0;
+  min-height: 0;
+}

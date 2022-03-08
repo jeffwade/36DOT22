@@ -106,6 +106,45 @@
           "cssFilePath": "plasmic/36_dot_22/Plasmic_404.module.css",
           "scheme": "blackbox",
           "componentType": "page"
+        },
+        {
+          "id": "Ts9o4wPDsr",
+          "name": "Latest",
+          "type": "managed",
+          "projectId": "byT51ah2LGWp7TY4NhRWN5",
+          "renderModuleFilePath": "plasmic/36_dot_22/PlasmicLatest.jsx",
+          "importSpec": {
+            "modulePath": "../pages/latest.jsx"
+          },
+          "cssFilePath": "plasmic/36_dot_22/PlasmicLatest.module.css",
+          "scheme": "blackbox",
+          "componentType": "page"
+        },
+        {
+          "id": "MeM-3KPeHe",
+          "name": "ControlButton",
+          "type": "managed",
+          "projectId": "byT51ah2LGWp7TY4NhRWN5",
+          "renderModuleFilePath": "plasmic/36_dot_22/PlasmicControlButton.jsx",
+          "importSpec": {
+            "modulePath": "ControlButton.jsx"
+          },
+          "cssFilePath": "plasmic/36_dot_22/PlasmicControlButton.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "Ez2OM_1IjG",
+          "name": "Logo",
+          "type": "managed",
+          "projectId": "byT51ah2LGWp7TY4NhRWN5",
+          "renderModuleFilePath": "plasmic/36_dot_22/PlasmicLogo.jsx",
+          "importSpec": {
+            "modulePath": "Logo.jsx"
+          },
+          "cssFilePath": "plasmic/36_dot_22/PlasmicLogo.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -136,8 +175,18 @@
         },
         {
           "id": "ao2mpgOaJ",
-          "name": "_36Icon",
-          "moduleFilePath": "plasmic/36_dot_22/icons/PlasmicIcon___36.jsx"
+          "name": "ThirtysixIcon",
+          "moduleFilePath": "plasmic/36_dot_22/icons/PlasmicIcon__Thirtysix.jsx"
+        },
+        {
+          "id": "rKfHxY0N0",
+          "name": "TwentytwoIcon",
+          "moduleFilePath": "plasmic/36_dot_22/icons/PlasmicIcon__Twentytwo.jsx"
+        },
+        {
+          "id": "PJGoLlwR2",
+          "name": "ArrowLeftIcon",
+          "moduleFilePath": "plasmic/36_dot_22/icons/PlasmicIcon__ArrowLeft.jsx"
         }
       ],
       "images": [],

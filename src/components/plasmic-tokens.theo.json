@@ -171,6 +171,16 @@
       }
     },
     {
+      "name": "pink",
+      "type": "color",
+      "value": "#FC65FF",
+      "category": "color",
+      "meta": {
+        "projectId": "byT51ah2LGWp7TY4NhRWN5",
+        "id": "GFemPdq3k"
+      }
+    },
+    {
       "name": "primary-high",
       "type": "color",
       "value": "#0FEEBB",
