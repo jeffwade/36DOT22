@@ -1,0 +1,1 @@
+{"version":3,"file":"component---src-pages-404-jsx-688f58769fbf068daed4.js","mappings":"4IAUA,UANA,WACE,OACI,gBAAC,UAAD","sources":["webpack://36-dot-22/./src/pages/404.jsx"],"sourcesContent":["import * as React from \"react\";\nimport Homepage from \"./index\";\n\n\nfunction _404() {\n  return (\n      <Homepage />\n  );\n}\n\nexport default _404;\n"],"names":[],"sourceRoot":""}
