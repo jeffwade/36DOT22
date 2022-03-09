@@ -4,7 +4,7 @@ import pos from './images/letterB-positive.jpg';
 import neg from './images/letterB-negative.jpg';
 
 
-const sketch = (p) => {
+const letterB = (p) => {
   initializeCanvas(p);
 
   // vectors
@@ -69,4 +69,4 @@ const sketch = (p) => {
   };
 };
 
-export default sketch;
+export default letterB;

@@ -1,12 +1,14 @@
 import { initializeCanvas, blurHSB } from './helpers';
+import img from './images/dotCalendar.png';
 import colors from './colors';
 
+let calendar;
 
-const sketch = (p) => {
+const Calendar = (p) => {
   initializeCanvas(p);
 
   // vectors
-  const center = {x: pwidth/2, y: height/2};
+  const center = {x: p.width/2, y: p.height/2};
 
   // create an array of the color names
   const colorKeys = Object.keys(colors);
@@ -16,14 +18,13 @@ const sketch = (p) => {
   const a = colors.opacity;
 
   // add named colors
-  const { black, white, } = colors;
+  const { black, pink, } = colors;
   let fgColor, bgColor;
 
   let cnvs;
 
   p.preload = () => {
-    topImg = p.loadImage(front);
-    bottomImg = p.loadImage(back);
+    calendar = p.loadImage(img);
   };
 
   p.setup = () => {
@@ -31,7 +32,7 @@ const sketch = (p) => {
 
     p.colorMode(p.HSB, 360, 100, 100, 100);
     fgColor = p.color(black.h, black.s, black.b, black.a);
-    bgColor = p.color(white.h, white.s, white.b, white.a);
+    bgColor = p.color(pink.h, pink.s, pink.b, pink.a);
 
     p.ellipseMode(p.RADIUS);
 
@@ -43,15 +44,15 @@ const sketch = (p) => {
 
   p.draw = () => {
     p.push();
-    p.translate(center.x, center.y);
+    p.translate(p.mouseX, p.mouseY);
     p.fill(fgColor);
     p.noStroke();
     p.circle(0,0,20);
     p.pop();
 
-    p.image(positive, 0, 0, p.width, p.height);
-    blurHSB(p, black.h, black.s, black.b, a.low);
+    p.image(calendar, 0, 0, p.width, p.height);
+    blurHSB(p, pink.h, pink.s, pink.b, a.low);
   };
 };
 
-export default sketch;
+export default Calendar;

@@ -6,7 +6,7 @@ function P5Sketch({ sketch, name, sketchDiv, ref, ...rest }) {
   const sketchRef = useRef();
   useEffect(() => {
     new p5(sketch, sketchRef.current);
-  }, []);
+  }, [sketch]);
 
   return (
     <PlasmicP5Sketch sketchDiv={<div id={name} ref={sketchRef}></div>} {...rest}/>

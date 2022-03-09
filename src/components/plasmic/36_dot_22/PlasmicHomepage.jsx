@@ -99,9 +99,9 @@ function PlasmicHomepage__RenderFunc(props) {
                   })}
                 >
                   <ControlButton
-                    data-plasmic-name={"info2"}
-                    data-plasmic-override={overrides.info2}
-                    className={classNames("__wab_instance", sty.info2)}
+                    data-plasmic-name={"info"}
+                    data-plasmic-override={overrides.info}
+                    className={classNames("__wab_instance", sty.info)}
                     icon={
                       <InfoIcon
                         data-plasmic-name={"infoicon"}
@@ -113,9 +113,9 @@ function PlasmicHomepage__RenderFunc(props) {
                   />
 
                   <ControlButton
-                    data-plasmic-name={"modetoggle"}
-                    data-plasmic-override={overrides.modetoggle}
-                    className={classNames("__wab_instance", sty.modetoggle)}
+                    data-plasmic-name={"modeToggle"}
+                    data-plasmic-override={overrides.modeToggle}
+                    className={classNames("__wab_instance", sty.modeToggle)}
                     icon={
                       <DarkmodeIcon
                         data-plasmic-name={"darkmodeIcon"}
@@ -173,11 +173,17 @@ function PlasmicHomepage__RenderFunc(props) {
             </p.Stack>
 
             <p.Stack
-              as={"div"}
+              as={"nav"}
               data-plasmic-name={"footer"}
               data-plasmic-override={overrides.footer}
               hasGap={true}
-              className={classNames(projectcss.all, sty.footer)}
+              className={classNames(projectcss.all, sty.footer, {
+                [sty.footerglobal_mode_dark]: hasVariant(
+                  globalVariants,
+                  "mode",
+                  "dark"
+                )
+              })}
             >
               <Button
                 className={classNames("__wab_instance", sty.button__g6Wpw)}
@@ -208,9 +214,9 @@ function PlasmicHomepage__RenderFunc(props) {
 
             {true ? (
               <div
-                data-plasmic-name={"info"}
-                data-plasmic-override={overrides.info}
-                className={classNames(projectcss.all, sty.info)}
+                data-plasmic-name={"infoModal"}
+                data-plasmic-override={overrides.infoModal}
+                className={classNames(projectcss.all, sty.infoModal)}
               >
                 <h1
                   data-plasmic-name={"h1"}
@@ -275,26 +281,26 @@ const PlasmicDescendants = {
   root: [
     "root",
     "header",
-    "info2",
+    "info",
     "infoicon",
-    "modetoggle",
+    "modeToggle",
     "darkmodeIcon",
     "logo",
     "footer",
-    "info",
+    "infoModal",
     "h1",
     "h2",
     "byline"
   ],
 
-  header: ["header", "info2", "infoicon", "modetoggle", "darkmodeIcon", "logo"],
-  info2: ["info2", "infoicon"],
+  header: ["header", "info", "infoicon", "modeToggle", "darkmodeIcon", "logo"],
+  info: ["info", "infoicon"],
   infoicon: ["infoicon"],
-  modetoggle: ["modetoggle", "darkmodeIcon"],
+  modeToggle: ["modeToggle", "darkmodeIcon"],
   darkmodeIcon: ["darkmodeIcon"],
   logo: ["logo"],
   footer: ["footer"],
-  info: ["info", "h1", "h2", "byline"],
+  infoModal: ["infoModal", "h1", "h2", "byline"],
   h1: ["h1"],
   h2: ["h2"],
   byline: ["byline"]
@@ -330,13 +336,13 @@ export const PlasmicHomepage = Object.assign(
   {
     // Helper components rendering sub-elements
     header: makeNodeComponent("header"),
-    info2: makeNodeComponent("info2"),
+    info: makeNodeComponent("info"),
     infoicon: makeNodeComponent("infoicon"),
-    modetoggle: makeNodeComponent("modetoggle"),
+    modeToggle: makeNodeComponent("modeToggle"),
     darkmodeIcon: makeNodeComponent("darkmodeIcon"),
     logo: makeNodeComponent("logo"),
     footer: makeNodeComponent("footer"),
-    info: makeNodeComponent("info"),
+    infoModal: makeNodeComponent("infoModal"),
     h1: makeNodeComponent("h1"),
     h2: makeNodeComponent("h2"),
     byline: makeNodeComponent("byline"),

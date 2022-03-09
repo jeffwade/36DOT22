@@ -3,7 +3,7 @@ import front from './images/letterA.png';
 import back from './images/letterA-back-75.png';
 import { initializeCanvas } from './helpers';
 
-const sketch = (p) => {
+const LetterA = (p) => {
   class Shot {
     constructor(_id, _x, _y, _radius, _speed, _color) {
       this.id = _id;
@@ -75,6 +75,7 @@ const sketch = (p) => {
     p.colorMode(p.HSB, 360, 100, 100, 100);
 
     p.frameRate(33);
+    p.noCursor();
   };
 
   p.draw = () => {
@@ -98,6 +99,10 @@ const sketch = (p) => {
       }
     }
     p.image(topImg, 0, 0, p.width, p.height);
+    p.push();
+    p.fill(0, a.low);
+    p.circle(p.mouseX, p.mouseY, 15);
+    p.pop();
   };
 
   const shoot = (color) => {
@@ -115,4 +120,4 @@ const sketch = (p) => {
   }
 };
 
-export default sketch;
+export default LetterA;

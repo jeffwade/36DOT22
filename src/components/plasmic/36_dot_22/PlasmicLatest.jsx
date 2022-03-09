@@ -28,6 +28,7 @@ import * as projectcss from "./plasmic_36_dot_22.module.css"; // plasmic-import:
 import * as sty from "./PlasmicLatest.module.css"; // plasmic-import: Ts9o4wPDsr/css
 import InfoIcon from "./icons/PlasmicIcon__Info"; // plasmic-import: rh7Opgr7v/icon
 import DarkmodeIcon from "./icons/PlasmicIcon__Darkmode"; // plasmic-import: GFhQaEFLo/icon
+import LightmodeIcon from "./icons/PlasmicIcon__Lightmode"; // plasmic-import: ovRZdneIh/icon
 import ArrowLeftIcon from "./icons/PlasmicIcon__ArrowLeft"; // plasmic-import: PJGoLlwR2/icon
 import ListIcon from "./icons/PlasmicIcon__List"; // plasmic-import: osUcStubx/icon
 import ArrowRightIcon from "./icons/PlasmicIcon__ArrowRight"; // plasmic-import: ON7qZLXAQxN/icon
@@ -66,6 +67,12 @@ function PlasmicLatest__RenderFunc(props) {
               sty.root,
               {
                 [projectcss.global_mode_dark]: hasVariant(
+                  globalVariants,
+                  "mode",
+                  "dark"
+                ),
+
+                [sty.rootglobal_mode_dark]: hasVariant(
                   globalVariants,
                   "mode",
                   "dark"
@@ -118,14 +125,25 @@ function PlasmicLatest__RenderFunc(props) {
               </p.PlasmicLink>
 
               <ControlButton
-                data-plasmic-name={"modetoggle"}
-                data-plasmic-override={overrides.modetoggle}
-                className={classNames("__wab_instance", sty.modetoggle)}
+                data-plasmic-name={"modeToggle"}
+                data-plasmic-override={overrides.modeToggle}
+                className={classNames("__wab_instance", sty.modeToggle)}
                 icon={
-                  <DarkmodeIcon
+                  <p.PlasmicIcon
                     data-plasmic-name={"infoIcon"}
                     data-plasmic-override={overrides.infoIcon}
-                    className={classNames(projectcss.all, sty.infoIcon)}
+                    PlasmicIconType={
+                      hasVariant(globalVariants, "mode", "dark")
+                        ? LightmodeIcon
+                        : DarkmodeIcon
+                    }
+                    className={classNames(projectcss.all, sty.infoIcon, {
+                      [sty.infoIconglobal_mode_dark]: hasVariant(
+                        globalVariants,
+                        "mode",
+                        "dark"
+                      )
+                    })}
                     role={"img"}
                   />
                 }
@@ -181,9 +199,9 @@ function PlasmicLatest__RenderFunc(props) {
                   : true
               ) ? (
                 <ControlButton
-                  data-plasmic-name={"prev2"}
-                  data-plasmic-override={overrides.prev2}
-                  className={classNames("__wab_instance", sty.prev2)}
+                  data-plasmic-name={"list"}
+                  data-plasmic-override={overrides.list}
+                  className={classNames("__wab_instance", sty.list)}
                   icon={
                     <ListIcon
                       data-plasmic-name={"infoIcon5"}
@@ -223,13 +241,13 @@ const PlasmicDescendants = {
     "infoIcon2",
     "link",
     "logo",
-    "modetoggle",
+    "modeToggle",
     "infoIcon",
     "freeBox",
     "p5Sketch",
     "prev",
     "infoIcon3",
-    "prev2",
+    "list",
     "infoIcon5",
     "next",
     "infoIcon4"
@@ -239,13 +257,13 @@ const PlasmicDescendants = {
   infoIcon2: ["infoIcon2"],
   link: ["link", "logo"],
   logo: ["logo"],
-  modetoggle: ["modetoggle", "infoIcon"],
+  modeToggle: ["modeToggle", "infoIcon"],
   infoIcon: ["infoIcon"],
   freeBox: ["freeBox", "p5Sketch"],
   p5Sketch: ["p5Sketch"],
   prev: ["prev", "infoIcon3"],
   infoIcon3: ["infoIcon3"],
-  prev2: ["prev2", "infoIcon5"],
+  list: ["list", "infoIcon5"],
   infoIcon5: ["infoIcon5"],
   next: ["next", "infoIcon4"],
   infoIcon4: ["infoIcon4"]
@@ -284,13 +302,13 @@ export const PlasmicLatest = Object.assign(
     infoIcon2: makeNodeComponent("infoIcon2"),
     link: makeNodeComponent("link"),
     logo: makeNodeComponent("logo"),
-    modetoggle: makeNodeComponent("modetoggle"),
+    modeToggle: makeNodeComponent("modeToggle"),
     infoIcon: makeNodeComponent("infoIcon"),
     freeBox: makeNodeComponent("freeBox"),
     p5Sketch: makeNodeComponent("p5Sketch"),
     prev: makeNodeComponent("prev"),
     infoIcon3: makeNodeComponent("infoIcon3"),
-    prev2: makeNodeComponent("prev2"),
+    list: makeNodeComponent("list"),
     infoIcon5: makeNodeComponent("infoIcon5"),
     next: makeNodeComponent("next"),
     infoIcon4: makeNodeComponent("infoIcon4"),

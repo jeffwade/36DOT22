@@ -76,7 +76,16 @@ const colors =
     s: 55,
     b: 92,
     a: 100,
+  },
+
+  pink: {
+    h: 338,
+    s: 22,
+    b: 100,
+    a: 100,
+    hex: '#ffc8dc',
   }
+
 };
 
 export default colors;
