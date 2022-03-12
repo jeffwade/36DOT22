@@ -89,19 +89,23 @@ function PlasmicLatest__RenderFunc(props) {
                 )
               })}
             >
-              <ControlButton
-                data-plasmic-name={"info"}
-                data-plasmic-override={overrides.info}
-                className={classNames("__wab_instance", sty.info)}
-                icon={
-                  <InfoIcon
-                    data-plasmic-name={"infoIcon2"}
-                    data-plasmic-override={overrides.infoIcon2}
-                    className={classNames(projectcss.all, sty.infoIcon2)}
-                    role={"img"}
-                  />
-                }
-              />
+              {true ? (
+                <ControlButton
+                  data-plasmic-name={"info"}
+                  data-plasmic-override={overrides.info}
+                  className={classNames("__wab_instance", sty.info)}
+                  icon={
+                    true ? (
+                      <InfoIcon
+                        data-plasmic-name={"infoIcon2"}
+                        data-plasmic-override={overrides.infoIcon2}
+                        className={classNames(projectcss.all, sty.infoIcon2)}
+                        role={"img"}
+                      />
+                    ) : null
+                  }
+                />
+              ) : null}
 
               <p.PlasmicLink
                 className={classNames(
@@ -213,12 +217,24 @@ function PlasmicLatest__RenderFunc(props) {
                   <ControlButton
                     data-plasmic-name={"list"}
                     data-plasmic-override={overrides.list}
-                    className={classNames("__wab_instance", sty.list)}
+                    className={classNames("__wab_instance", sty.list, {
+                      [sty.listglobal_mode_dark]: hasVariant(
+                        globalVariants,
+                        "mode",
+                        "dark"
+                      )
+                    })}
                     icon={
                       <ListIcon
                         data-plasmic-name={"infoIcon5"}
                         data-plasmic-override={overrides.infoIcon5}
-                        className={classNames(projectcss.all, sty.infoIcon5)}
+                        className={classNames(projectcss.all, sty.infoIcon5, {
+                          [sty.infoIcon5global_mode_dark]: hasVariant(
+                            globalVariants,
+                            "mode",
+                            "dark"
+                          )
+                        })}
                         role={"img"}
                       />
                     }

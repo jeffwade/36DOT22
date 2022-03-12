@@ -113,6 +113,7 @@
   width: 2rem;
   height: 2rem;
   flex-shrink: 0;
+  display: none;
 }
 .infoicon {
   position: relative;

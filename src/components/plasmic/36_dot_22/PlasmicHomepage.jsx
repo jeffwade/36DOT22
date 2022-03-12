@@ -97,19 +97,21 @@ function PlasmicHomepage__RenderFunc(props) {
                     )
                   })}
                 >
-                  <ControlButton
-                    data-plasmic-name={"info"}
-                    data-plasmic-override={overrides.info}
-                    className={classNames("__wab_instance", sty.info)}
-                    icon={
-                      <InfoIcon
-                        data-plasmic-name={"infoicon"}
-                        data-plasmic-override={overrides.infoicon}
-                        className={classNames(projectcss.all, sty.infoicon)}
-                        role={"img"}
-                      />
-                    }
-                  />
+                  {true ? (
+                    <ControlButton
+                      data-plasmic-name={"info"}
+                      data-plasmic-override={overrides.info}
+                      className={classNames("__wab_instance", sty.info)}
+                      icon={
+                        <InfoIcon
+                          data-plasmic-name={"infoicon"}
+                          data-plasmic-override={overrides.infoicon}
+                          className={classNames(projectcss.all, sty.infoicon)}
+                          role={"img"}
+                        />
+                      }
+                    />
+                  ) : null}
 
                   <ControlButton
                     data-plasmic-name={"modeToggle"}
