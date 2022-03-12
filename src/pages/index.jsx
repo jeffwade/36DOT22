@@ -4,7 +4,7 @@ import { ModeContext } from "../components/plasmic/36_dot_22/PlasmicGlobalVarian
 import { useState } from "react";
 
 function Homepage() {
-  const [mode, setMode] = useState(undefined);
+  const [mode, setMode] = useState("dark");
 
   return (
     <ModeContext.Provider value={mode}>

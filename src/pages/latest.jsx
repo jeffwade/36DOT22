@@ -6,7 +6,7 @@ import characters from '../sketches/characters';
 
 function Latest() {
   const [day, setDay] = useState(characters.length - 1);
-  const [mode, setMode] = useState(undefined);
+  const [mode, setMode] = useState("dark");
   let character = characters[day - 1];
   const [sketch, setSketch] = useState({props: {sketch: character, name: `day-${day}` }});
 

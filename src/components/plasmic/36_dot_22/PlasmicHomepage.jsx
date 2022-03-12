@@ -27,6 +27,7 @@ import * as projectcss from "./plasmic_36_dot_22.module.css"; // plasmic-import:
 import * as sty from "./PlasmicHomepage.module.css"; // plasmic-import: 0ttrvnk3PBsW/css
 import InfoIcon from "./icons/PlasmicIcon__Info"; // plasmic-import: rh7Opgr7v/icon
 import DarkmodeIcon from "./icons/PlasmicIcon__Darkmode"; // plasmic-import: GFhQaEFLo/icon
+import LightmodeIcon from "./icons/PlasmicIcon__Lightmode"; // plasmic-import: ovRZdneIh/icon
 
 export const PlasmicHomepage__VariantProps = new Array();
 
@@ -113,12 +114,33 @@ function PlasmicHomepage__RenderFunc(props) {
                   <ControlButton
                     data-plasmic-name={"modeToggle"}
                     data-plasmic-override={overrides.modeToggle}
-                    className={classNames("__wab_instance", sty.modeToggle)}
+                    className={classNames("__wab_instance", sty.modeToggle, {
+                      [sty.modeToggleglobal_mode_dark]: hasVariant(
+                        globalVariants,
+                        "mode",
+                        "dark"
+                      )
+                    })}
                     icon={
-                      <DarkmodeIcon
+                      <p.PlasmicIcon
                         data-plasmic-name={"darkmodeIcon"}
                         data-plasmic-override={overrides.darkmodeIcon}
-                        className={classNames(projectcss.all, sty.darkmodeIcon)}
+                        PlasmicIconType={
+                          hasVariant(globalVariants, "mode", "dark")
+                            ? LightmodeIcon
+                            : DarkmodeIcon
+                        }
+                        className={classNames(
+                          projectcss.all,
+                          sty.darkmodeIcon,
+                          {
+                            [sty.darkmodeIconglobal_mode_dark]: hasVariant(
+                              globalVariants,
+                              "mode",
+                              "dark"
+                            )
+                          }
+                        )}
                         role={"img"}
                       />
                     }
