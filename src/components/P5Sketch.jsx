@@ -9,7 +9,7 @@ function P5Sketch({ sketch, name, sketchDiv, ref, ...rest }) {
   }, [sketch]);
 
   return (
-    <PlasmicP5Sketch sketchDiv={<div id={name} ref={sketchRef}></div>} {...rest}/>
+    <PlasmicP5Sketch sketchDiv={<div className={"p5sketch"} id={name} ref={sketchRef}></div>} {...rest}/>
   );
 }
 

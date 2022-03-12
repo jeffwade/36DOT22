@@ -1,7 +1,7 @@
 import colors from './colors';
 import front from './images/letterA.png';
 import back from './images/letterA-back-75.png';
-import { initializeCanvas } from './helpers';
+import { initializeCanvas, scaleCanvas } from './helpers';
 
 const LetterA = (p) => {
   class Shot {
@@ -116,7 +116,7 @@ const LetterA = (p) => {
   };
 
   p.windowResized = () => {
-    initializeCanvas(p);
+    scaleCanvas(p);
   }
 };
 

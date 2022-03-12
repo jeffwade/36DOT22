@@ -49,13 +49,11 @@ function PlasmicHomepage__RenderFunc(props) {
 
       <div className={projectcss.plasmic_page_wrapper}>
         {true ? (
-          <p.Stack
-            as={"div"}
+          <div
             data-plasmic-name={"root"}
             data-plasmic-override={overrides.root}
             data-plasmic-root={true}
             data-plasmic-for-node={forNode}
-            hasGap={true}
             className={classNames(
               projectcss.all,
               projectcss.root_reset,
@@ -185,20 +183,25 @@ function PlasmicHomepage__RenderFunc(props) {
                 )
               })}
             >
-              <Button
-                className={classNames("__wab_instance", sty.button__g6Wpw)}
-                color={"secondary"}
-              >
-                {"List"}
-              </Button>
+              {true ? (
+                <Button
+                  className={classNames("__wab_instance", sty.button__g6Wpw)}
+                  color={"secondary"}
+                  link={"/list"}
+                >
+                  {"List"}
+                </Button>
+              ) : null}
 
               <Button
-                className={classNames("__wab_instance", sty.button__waSwW)}
-                link={
-                  hasVariant(globalVariants, "screen", "desktopOnly")
-                    ? "/latest"
-                    : undefined
-                }
+                className={classNames("__wab_instance", sty.button__waSwW, {
+                  [sty.buttonglobal_mode_dark__waSwWcm4Qj]: hasVariant(
+                    globalVariants,
+                    "mode",
+                    "dark"
+                  )
+                })}
+                link={"/latest"}
               >
                 <div
                   className={classNames(
@@ -207,7 +210,7 @@ function PlasmicHomepage__RenderFunc(props) {
                     sty.text__sxMwY
                   )}
                 >
-                  {"Latest"}
+                  {"see the type"}
                 </div>
               </Button>
             </p.Stack>
@@ -270,7 +273,7 @@ function PlasmicHomepage__RenderFunc(props) {
                 ) : null}
               </div>
             ) : null}
-          </p.Stack>
+          </div>
         ) : null}
       </div>
     </React.Fragment>

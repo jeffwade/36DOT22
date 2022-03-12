@@ -1,4 +1,4 @@
-import { initializeCanvas, blurHSB } from './helpers';
+import { initializeCanvas, blurHSB, scaleCanvas } from './helpers';
 import colors from './colors';
 import pos from './images/letterB-positive.jpg';
 import neg from './images/letterB-negative.jpg';
@@ -6,9 +6,6 @@ import neg from './images/letterB-negative.jpg';
 
 const letterB = (p) => {
   initializeCanvas(p);
-
-  // vectors
-  const center = {x: p.width/2, y: p.height/2};
 
   // create an array of the color names
   const colorKeys = Object.keys(colors);
@@ -48,6 +45,12 @@ const letterB = (p) => {
     p.background(bgColor);
   };
 
+  /*
+   *
+   * ADD
+   * MASKING
+   *
+  */
   p.draw = () => {
     let currentImage = ( clicks%2 )
       ? positive
@@ -67,6 +70,10 @@ const letterB = (p) => {
 
     });
   };
+
+  p.windowResized = () => {
+    scaleCanvas(p);
+  }
 };
 
 export default letterB;

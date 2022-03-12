@@ -7,9 +7,8 @@ function Homepage() {
   const [mode, setMode] = useState(undefined);
 
   return (
-    <ModeContext.Provider value={"dark"}>
+    <ModeContext.Provider value={mode}>
       <PlasmicHomepage
-
         modeToggle={{
           onClick: () => {
             if ( mode === 'dark' ) {

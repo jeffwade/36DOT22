@@ -104,9 +104,11 @@ function PlasmicLatest__RenderFunc(props) {
               />
 
               <p.PlasmicLink
-                data-plasmic-name={"link"}
-                data-plasmic-override={overrides.link}
-                className={classNames(projectcss.all, projectcss.a, sty.link)}
+                className={classNames(
+                  projectcss.all,
+                  projectcss.a,
+                  sty.link__pjSjj
+                )}
                 component={Link}
                 href={"/"}
                 platform={"gatsby"}
@@ -193,25 +195,36 @@ function PlasmicLatest__RenderFunc(props) {
                 }
               />
 
-              {(
-                hasVariant(globalVariants, "screen", "desktopOnly")
-                  ? true
-                  : true
-              ) ? (
-                <ControlButton
-                  data-plasmic-name={"list"}
-                  data-plasmic-override={overrides.list}
-                  className={classNames("__wab_instance", sty.list)}
-                  icon={
-                    <ListIcon
-                      data-plasmic-name={"infoIcon5"}
-                      data-plasmic-override={overrides.infoIcon5}
-                      className={classNames(projectcss.all, sty.infoIcon5)}
-                      role={"img"}
-                    />
-                  }
-                />
-              ) : null}
+              <p.PlasmicLink
+                className={classNames(
+                  projectcss.all,
+                  projectcss.a,
+                  sty.link__jqUyF
+                )}
+                component={Link}
+                href={"/list"}
+                platform={"gatsby"}
+              >
+                {(
+                  hasVariant(globalVariants, "screen", "desktopOnly")
+                    ? true
+                    : true
+                ) ? (
+                  <ControlButton
+                    data-plasmic-name={"list"}
+                    data-plasmic-override={overrides.list}
+                    className={classNames("__wab_instance", sty.list)}
+                    icon={
+                      <ListIcon
+                        data-plasmic-name={"infoIcon5"}
+                        data-plasmic-override={overrides.infoIcon5}
+                        className={classNames(projectcss.all, sty.infoIcon5)}
+                        role={"img"}
+                      />
+                    }
+                  />
+                ) : null}
+              </p.PlasmicLink>
 
               <ControlButton
                 data-plasmic-name={"next"}
@@ -239,7 +252,6 @@ const PlasmicDescendants = {
     "root",
     "info",
     "infoIcon2",
-    "link",
     "logo",
     "modeToggle",
     "infoIcon",
@@ -255,7 +267,6 @@ const PlasmicDescendants = {
 
   info: ["info", "infoIcon2"],
   infoIcon2: ["infoIcon2"],
-  link: ["link", "logo"],
   logo: ["logo"],
   modeToggle: ["modeToggle", "infoIcon"],
   infoIcon: ["infoIcon"],
@@ -300,7 +311,6 @@ export const PlasmicLatest = Object.assign(
     // Helper components rendering sub-elements
     info: makeNodeComponent("info"),
     infoIcon2: makeNodeComponent("infoIcon2"),
-    link: makeNodeComponent("link"),
     logo: makeNodeComponent("logo"),
     modeToggle: makeNodeComponent("modeToggle"),
     infoIcon: makeNodeComponent("infoIcon"),

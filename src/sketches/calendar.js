@@ -1,4 +1,4 @@
-import { initializeCanvas, blurHSB } from './helpers';
+import { initializeCanvas, scaleCanvas, blurHSB } from './helpers';
 import img from './images/dotCalendar.png';
 import colors from './colors';
 
@@ -53,6 +53,10 @@ const Calendar = (p) => {
     p.image(calendar, 0, 0, p.width, p.height);
     blurHSB(p, pink.h, pink.s, pink.b, a.low);
   };
+
+  p.windowResized = () => {
+    scaleCanvas(p);
+  }
 };
 
 export default Calendar;

@@ -30,7 +30,7 @@ import DarkmodeIcon from "./icons/PlasmicIcon__Darkmode"; // plasmic-import: GFh
 
 export const PlasmicList__VariantProps = new Array();
 
-export const PlasmicList__ArgProps = new Array();
+export const PlasmicList__ArgProps = new Array("characterList");
 
 function PlasmicList__RenderFunc(props) {
   const { variants, args, overrides, forNode } = props;
@@ -100,6 +100,7 @@ function PlasmicList__RenderFunc(props) {
               data-plasmic-override={overrides.link}
               className={classNames(projectcss.all, projectcss.a, sty.link)}
               component={Link}
+              href={"/"}
               platform={"gatsby"}
             >
               {(
@@ -132,30 +133,36 @@ function PlasmicList__RenderFunc(props) {
 
           <p.Stack
             as={"ol"}
-            data-plasmic-name={"ol"}
-            data-plasmic-override={overrides.ol}
+            data-plasmic-name={"list"}
+            data-plasmic-override={overrides.list}
             hasGap={true}
-            className={classNames(projectcss.all, projectcss.ol, sty.ol)}
+            className={classNames(projectcss.all, projectcss.ol, sty.list)}
           >
-            <li
-              data-plasmic-name={"li"}
-              data-plasmic-override={overrides.li}
-              className={classNames(projectcss.all, projectcss.li, sty.li)}
-            >
-              <p.PlasmicImg
-                data-plasmic-name={"img"}
-                data-plasmic-override={overrides.img}
-                alt={""}
-                className={classNames(sty.img)}
-                displayHeight={"100%"}
-                displayMaxHeight={"none"}
-                displayMaxWidth={"100%"}
-                displayMinHeight={"0"}
-                displayMinWidth={"0"}
-                displayWidth={"100%"}
-                loading={"lazy"}
-              />
-            </li>
+            {p.renderPlasmicSlot({
+              defaultContents: (
+                <li
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.li,
+                    sty.li__kCL6
+                  )}
+                >
+                  <p.PlasmicImg
+                    alt={""}
+                    className={classNames(sty.img___3A9WI)}
+                    displayHeight={"100%"}
+                    displayMaxHeight={"none"}
+                    displayMaxWidth={"100%"}
+                    displayMinHeight={"0"}
+                    displayMinWidth={"0"}
+                    displayWidth={"100%"}
+                    loading={"lazy"}
+                  />
+                </li>
+              ),
+
+              value: args.characterList
+            })}
           </p.Stack>
         </p.Stack>
       </div>
@@ -173,9 +180,7 @@ const PlasmicDescendants = {
     "logo",
     "modetoggle",
     "infoIcon",
-    "ol",
-    "li",
-    "img"
+    "list"
   ],
 
   freeBox: [
@@ -194,9 +199,7 @@ const PlasmicDescendants = {
   logo: ["logo"],
   modetoggle: ["modetoggle", "infoIcon"],
   infoIcon: ["infoIcon"],
-  ol: ["ol", "li", "img"],
-  li: ["li", "img"],
-  img: ["img"]
+  list: ["list"]
 };
 
 function makeNodeComponent(nodeName) {
@@ -235,9 +238,7 @@ export const PlasmicList = Object.assign(
     logo: makeNodeComponent("logo"),
     modetoggle: makeNodeComponent("modetoggle"),
     infoIcon: makeNodeComponent("infoIcon"),
-    ol: makeNodeComponent("ol"),
-    li: makeNodeComponent("li"),
-    img: makeNodeComponent("img"),
+    list: makeNodeComponent("list"),
     // Metadata about props expected for PlasmicList
     internalVariantProps: PlasmicList__VariantProps,
     internalArgProps: PlasmicList__ArgProps

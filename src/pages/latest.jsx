@@ -19,7 +19,7 @@ function Latest() {
   const replaceSketch = async () => {
     let sketchCanvas = await document.querySelector(`#day-${day} canvas`);
     await sketchCanvas.remove();
-    await setSketch({props: {sketch: character, name: `day-${day}` }});
+    // await setSketch({props: {sketch: character, name: `day-${day}` }});
   };
 
   return (
