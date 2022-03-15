@@ -199,48 +199,57 @@ function PlasmicLatest__RenderFunc(props) {
                 }
               />
 
-              <p.PlasmicLink
-                className={classNames(
-                  projectcss.all,
-                  projectcss.a,
-                  sty.link__jqUyF
-                )}
-                component={Link}
-                href={"/list"}
-                platform={"gatsby"}
-              >
-                {(
-                  hasVariant(globalVariants, "screen", "desktopOnly")
-                    ? true
-                    : true
-                ) ? (
-                  <ControlButton
-                    data-plasmic-name={"list"}
-                    data-plasmic-override={overrides.list}
-                    className={classNames("__wab_instance", sty.list, {
-                      [sty.listglobal_mode_dark]: hasVariant(
+              {true ? (
+                <p.PlasmicLink
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.a,
+                    sty.link__jqUyF,
+                    {
+                      [sty.linkglobal_mode_dark__jqUyFcm4Qj]: hasVariant(
                         globalVariants,
                         "mode",
                         "dark"
                       )
-                    })}
-                    icon={
-                      <ListIcon
-                        data-plasmic-name={"infoIcon5"}
-                        data-plasmic-override={overrides.infoIcon5}
-                        className={classNames(projectcss.all, sty.infoIcon5, {
-                          [sty.infoIcon5global_mode_dark]: hasVariant(
-                            globalVariants,
-                            "mode",
-                            "dark"
-                          )
-                        })}
-                        role={"img"}
-                      />
                     }
-                  />
-                ) : null}
-              </p.PlasmicLink>
+                  )}
+                  component={Link}
+                  href={"/list"}
+                  platform={"gatsby"}
+                >
+                  {(
+                    hasVariant(globalVariants, "screen", "desktopOnly")
+                      ? true
+                      : true
+                  ) ? (
+                    <ControlButton
+                      data-plasmic-name={"list"}
+                      data-plasmic-override={overrides.list}
+                      className={classNames("__wab_instance", sty.list, {
+                        [sty.listglobal_mode_dark]: hasVariant(
+                          globalVariants,
+                          "mode",
+                          "dark"
+                        )
+                      })}
+                      icon={
+                        <ListIcon
+                          data-plasmic-name={"infoIcon5"}
+                          data-plasmic-override={overrides.infoIcon5}
+                          className={classNames(projectcss.all, sty.infoIcon5, {
+                            [sty.infoIcon5global_mode_dark]: hasVariant(
+                              globalVariants,
+                              "mode",
+                              "dark"
+                            )
+                          })}
+                          role={"img"}
+                        />
+                      }
+                    />
+                  ) : null}
+                </p.PlasmicLink>
+              ) : null}
 
               <ControlButton
                 data-plasmic-name={"next"}

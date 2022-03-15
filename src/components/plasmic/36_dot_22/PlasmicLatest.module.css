@@ -240,7 +240,7 @@
 }
 .link__jqUyF {
   position: relative;
-  display: flex;
+  display: none;
 }
 .list:global(.__wab_instance) {
   max-width: 100%;

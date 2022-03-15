@@ -37,7 +37,6 @@ const LetterA = (p) => {
       p.fill(this.color);
       p.noStroke();
       p.triangle(-this.radius, -this.radius, -this.radius, this.radius, this.radius*1.5, 0 );
-      // p.circle(0, 0, this.radius);
       p.pop();
     }
 
