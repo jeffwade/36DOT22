@@ -44,13 +44,9 @@ const letterH = (p) => {
   // a for alpha
   const a = colors.opacity;
 
-  const center = { x: p.width/2, y: p.height/2 };
-
   // add named colors
   const { black, green, } = colors;
-  let fgColor, bgColor;
-
-  let cnvs;
+  let bgColor;
 
   let haitches = [];
   const radius = 400;
@@ -63,12 +59,10 @@ const letterH = (p) => {
   };
 
   let row = 0;
-  let col = 0;
   p.setup = () => {
-    cnvs = initializeCanvas(p);
+    initializeCanvas(p);
 
     p.colorMode(p.HSB, 360, 100, 100, 100);
-    fgColor = p.color(black.h, black.s, black.b, black.a);
     bgColor = p.color(green.h, green.s, green.b, green.a);
 
     p.ellipseMode(p.RADIUS);
@@ -78,14 +72,12 @@ const letterH = (p) => {
 
     p.background(bgColor);
 
-    // haitches.push(new Haitch(0, 200, 200, hW, hH, fgColor));
     let x = 0;
     let c = bgColor;
     for ( let i = 0; i < p.width; i += 2*hW ) {
       for ( let j = 0;  j < p.height + hH; j += hH/2 + sw ) {
         if ( row%2 === 1 ) {
           x = i + hW/2;
-          // c = fgColor;
         } else {
            x = i;
           // c = bgColor;
@@ -93,7 +85,6 @@ const letterH = (p) => {
         haitches.push(new Haitch(`${i}:${j}`, x, j, hW, hH, c));
         row++;
       }
-      col++;
       row = 0;
     }
 
@@ -103,7 +94,6 @@ const letterH = (p) => {
     blurHSB(p, black.h, black.s, black.b, a.high);
     p.image(paperH, 0, 0, p.width, p.height);
     showHaitches();
-    // showCursor(radius/4);
   };
 
   const showHaitches = () => {
@@ -117,19 +107,6 @@ const letterH = (p) => {
         h.display();
       }
     }
-  };
-
-  const showCursor = (_radius) => {
-    p.push();
-    let r = radius/(1 + 0.2*p.dist(p.mouseX, p.mouseY, p.pmouseX, p.pmouseY));
-    p.translate(p.mouseX, p.mouseY);
-    // p.stroke(black.h, 20);
-    // p.strokeWeight(2);
-    p.noStroke();
-    // p.noFill();
-    p.fill( black.h, 1 );
-    p.circle(0, 0, r + hW);
-    p.pop();
   };
 
   p.windowResized = () => {

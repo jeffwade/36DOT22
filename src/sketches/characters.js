@@ -7,6 +7,7 @@ import letterF from './letterF';
 import letterG from './letterG';
 import letterH from './letterH';
 import letterI from './letterI';
+import letterJ from './letterJ';
 import Calendar from './calendar';
 
 const characters = [
@@ -19,6 +20,7 @@ const characters = [
   letterG,
   letterH,
   letterI,
+  letterJ,
   Calendar,
 ];
 

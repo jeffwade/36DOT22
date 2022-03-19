@@ -8,9 +8,6 @@ let calendar;
 const Calendar = (p) => {
   initializeCanvas(p);
 
-  // vectors
-  const center = {x: p.width/2, y: p.height/2};
-
   // create an array of the color names
   const colorKeys = Object.keys(colors);
   // remove opacity from array
@@ -21,8 +18,6 @@ const Calendar = (p) => {
   // add named colors
   const { black, pink, } = colors;
   let fgColor, bgColor;
-
-  let cnvs;
 
   p.preload = () => {
     calendar = p.loadImage(img);

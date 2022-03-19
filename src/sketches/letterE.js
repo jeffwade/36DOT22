@@ -74,8 +74,6 @@ const letterE = (p) => {
   const { black, white, } = colors;
   let fgColor, bgColor;
 
-  let cnvs;
-
   p.preload = () => {
     paperE = p.loadImage(img);
   };
@@ -90,7 +88,7 @@ const letterE = (p) => {
       movers.push(new Mover(`ae${i}`, eA, eE, i*p.TAU/num, true));
     }
 
-    cnvs = initializeCanvas(p);
+    initializeCanvas(p);
 
     p.colorMode(p.HSB, 360, 100, 100, 100);
     bgColor = p.color(black.h, black.s, black.b, black.a);
@@ -105,8 +103,6 @@ const letterE = (p) => {
   };
 
   p.draw = () => {
-    // cnvs.mousePressed(drawGuides);
-
     blurHSB(p, black.h, black.s, black.b, a.low);
     p.image(paperE, 0, 0, p.width, p.height);
     for ( let i = 0;  i < movers.length; i++ ) {
@@ -114,28 +110,18 @@ const letterE = (p) => {
     }
   };
 
-  const drawGuides = () => {
-    p.push();
-    p.noStroke();
-    p.fill( fgColor );
-    for (const point in ePoints ) {
-      // console.log( point, ePoints[point]["x"], point.y );
-      p.push();
-        p.translate(ePoints[point]["x"], ePoints[point]["y"]);
-        p.circle( 0, 0, 10 );
-      p.text(`${point}: (${Math.floor(ePoints[point]["x"])}, ${Math.floor(ePoints[point]["y"])})`, -20, -10);
-      p.pop();
-    }
-    // p.pop();
-    // p.push();
-    //   p.stroke(fgColor);
-    //   p.strokeWeight(p.width/20);
-    //   p.line(eA.x, eA.y, eE.x, eE.y);
-    //   p.line(eA.x, eA.y, eB.x, eB.y);
-    //   p.line(eC.x, eC.y, eD.x, eD.y);
-    //   p.line(eE.x, eE.y, eF.x, eF.y);
-    // p.pop();
-  };
+//   const drawGuides = () => {
+//     p.push();
+//     p.noStroke();
+//     p.fill( fgColor );
+//     for (const point in ePoints ) {
+//       p.push();
+//         p.translate(ePoints[point]["x"], ePoints[point]["y"]);
+//         p.circle( 0, 0, 10 );
+//       p.text(`${point}: (${Math.floor(ePoints[point]["x"])}, ${Math.floor(ePoints[point]["y"])})`, -20, -10);
+//       p.pop();
+//     }
+//   };
 
   p.windowResized = () => {
     scaleCanvas(p);

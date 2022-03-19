@@ -3,14 +3,14 @@
 import * as React from "react";
 import { ModeContext } from "../components/plasmic/36_dot_22/PlasmicGlobalVariant__Mode";
 import { PlasmicList } from "../components/plasmic/36_dot_22/PlasmicList";
-import characters from "../sketches/characters";
+// import characters from "../sketches/characters";
 
 function List() {
-  const olStyles = {
-  };
+  // const olStyles = {
+  // };
 
-  const liStyles = {
-  };
+  // const liStyles = {
+  // };
 
 
   return (

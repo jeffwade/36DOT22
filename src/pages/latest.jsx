@@ -12,7 +12,6 @@ function Latest() {
 
   useEffect(() => {
     character = characters[day - 1];
-    // console.log( character );
     setSketch({props: {sketch: character, name: `day-${day}` }});
   }, [day]);
 
