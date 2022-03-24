@@ -55,7 +55,10 @@ export const showCursor = (p, _fill, _stroke) => {
   } else {
     p.noStroke();
   }
-  p.circle(0,0,20);
+  p.noStroke();
+  p.rectMode(p.RADIUS);
+  p.rect(0, 0, 20, 1);
+  p.rect(0, 0, 1, 20);
   p.text(`${ Math.floor(p.mouseX) }, ${ Math.floor(p.mouseY) }`, -25, -30);
   p.pop();
 };
