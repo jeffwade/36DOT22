@@ -65,9 +65,12 @@ const Calendar = (p) => {
     y: 104,
     w: 75,
   };
+
+  const day = 24;
   const markCalendar = () => {
     let j = 0;
-    for ( let i = 0;  i < characters.length-2; i++ ) {
+    // for ( let i = 0;  i < characters.length-2; i++ ) {
+    for ( let i = 0;  i < day - 1; i++ ) {
       j = ( (i>0) && (i%7 === 0) ) ?
         j + 1
         : j;
@@ -77,7 +80,8 @@ const Calendar = (p) => {
     p.noFill();
     p.stroke(p.hue(fgColor), a.mid);
     p.strokeWeight(4);
-    p.circle(grid.x + ((characters.length-2)%7)*grid.w, grid.y + j*grid.w, 20);
+    // p.circle(grid.x + ((characters.length-2)%7)*grid.w, grid.y + j*grid.w, 20);
+    p.circle(grid.x + ((day - 1)%7)*grid.w, grid.y + j*grid.w, 20);
     p.pop();
   };
 };
