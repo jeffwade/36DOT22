@@ -14,6 +14,7 @@ import letterT from './letterT';
 import letterW from './letterW';
 import letterX from './letterX';
 import number0 from './number0';
+import number3 from './number3';
 import Calendar from './calendar';
 
 const characters = [
@@ -33,6 +34,7 @@ const characters = [
   letterW,
   letterX,
   number0,
+  number3,
   Calendar,
 ];
 

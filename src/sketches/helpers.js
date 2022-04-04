@@ -48,7 +48,16 @@ export const markWIP = (p) => {
 export const showCursor = (p, _fill, _stroke) => {
   p.push();
   p.translate(p.mouseX, p.mouseY);
-  p.fill(_fill);
+  if (_fill !== undefined) {
+    p.fill(_fill);
+  } else if (_fill === 0) {
+     p.fill(0);
+  } else if ( _fill === 255 ) {
+    p.fill(255);
+  } else {
+     p.fill(128);
+  }
+
   if ( _stroke !== undefined ) {
     p.stroke(_stroke);
     p.strokeWeight(2);
@@ -62,3 +71,16 @@ export const showCursor = (p, _fill, _stroke) => {
   p.text(`${ Math.floor(p.mouseX) }, ${ Math.floor(p.mouseY) }`, -25, -30);
   p.pop();
 };
+
+ export const drawGuides = (p, vertices) => {
+    p.push();
+    p.noStroke();
+    p.fill(255);
+    for (const u in vertices ) {
+      p.push();
+        p.translate(vertices[u]["x"], vertices[u]["y"]);
+        p.circle( 0, 0, 10 );
+      p.text(`${u}: (${Math.floor(vertices[u]["x"])}, ${Math.floor(vertices[u]["y"])})`, -20, -10);
+      p.pop();
+    }
+  };
