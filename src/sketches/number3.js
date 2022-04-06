@@ -11,6 +11,7 @@ const number3 = (p) => {
 
   let shapeIndex = 0;
   let vertexIndex = 0;
+  let vertexLimit = 3;
 
   class Mover {
     constructor(_id, _start, _end) {
@@ -39,7 +40,7 @@ const number3 = (p) => {
     display() {
       p.push();
       p.translate(this.position.x, this.position.y);
-      p.stroke(white.h, white.s, white.b, 4);
+      p.stroke(white.h, white.s, white.b, 24);
       p.line(0, 0, this.start.x - this.position.x, this.start.y - this.position.y);
       p.pop();
     }
@@ -82,8 +83,14 @@ const number3 = (p) => {
     // on vertexIndex
     cnvs.mousePressed( () => {
       // Add a vertex at the mouse position
-      addVertex(shapeIndex - 1, vertexIndex);
-      addMovers(shapeIndex - 1, vertexIndex);
+      if ( vertexIndex < vertexLimit ) {
+        addVertex(shapeIndex - 1, vertexIndex);
+        addMovers(shapeIndex - 1, vertexIndex);
+      } else {
+        newShape();
+        addVertex(shapeIndex - 1, vertexIndex);
+        addMovers(shapeIndex - 1, vertexIndex);
+      }
 
       // increment vertexIndex value
       vertexIndex++;
@@ -155,11 +162,12 @@ const number3 = (p) => {
   };
 
   const newShape = () => {
-    vertexIndex = 0;
     shapes[`shape${shapeIndex}`] = {
       vertices: {},
       movers: [],
     }
+    vertexIndex = 0;
+    vertexLimit = Math.floor(p.random(3, 9));
     shapeIndex++;
   };
 
