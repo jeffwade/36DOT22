@@ -7,20 +7,18 @@ const number3 = (p) => {
   let cnvs;
   let paper3;
 
-  const vertices = {};
-  let movers = [];
-  let click = 0;
+  const shapes = {};
+
+  let shapeIndex = 0;
+  let vertexIndex = 0;
 
   class Mover {
-    constructor(_id, _start, _end, _offset, _vertical) {
+    constructor(_id, _start, _end) {
       this.id = _id;
       this.start = _start;
       this.end = _end;
       this.position = { x: this.start["x"],  y: this.start["y"],};
-      this.offset = _offset;
-      this.vertical = _vertical;
       this.w = p.dist(this.end["x"], this.end["y"], this.start["x"], this.start["y"], )
-      this.h = 15;
     }
 
     run() {
@@ -41,9 +39,6 @@ const number3 = (p) => {
     display() {
       p.push();
       p.translate(this.position.x, this.position.y);
-      // p.fill(fgColor);
-      // p.noStroke();
-      // p.circle(0, 0, 4);
       p.stroke(white.h, white.s, white.b, 4);
       p.line(0, 0, this.start.x - this.position.x, this.start.y - this.position.y);
       p.pop();
@@ -78,34 +73,48 @@ const number3 = (p) => {
     // p.noCursor();
     p.frameRate(30);
 
+    // start with a shape
+    newShape();
+
     p.background(bgColor);
   };
 
   const n = 1;
   p.draw = () => {
 
-    // on click
+    // on vertexIndex
     cnvs.mousePressed( () => {
       // Add a vertex at the mouse position
-      vertices[`u${click}`] = {x: p.mouseX, y: p.mouseY}
-      // for each vertex pair, add `n` movers
-      if ( Object.keys(vertices).length > 1 ) {
-        for ( let i = 0; i < click; i++ ) {
-          movers.push( new Mover(`u${click}u${i}`, vertices[`u${click}`], vertices[`u${i}`], 0) );
-        }
-      }
-      // increment click value
-      click++;
+      addVertex(shapeIndex - 1, vertexIndex);
+      addMovers(shapeIndex - 1, vertexIndex);
+
+      // increment vertexIndex value
+      vertexIndex++;
     });
 
     // draw the background image
     p.image(paper3, 0, 0, p.width, p.height)
     blurHSB(p, black.h, black.s, black.b, a.low);
-    drawVertices(p, vertices);
 
-    // run the movers
-    for ( let i = 0;  i < movers.length; i++ ) {
-      movers[i].run();
+    // run each shape
+    for ( const s in shapes ) {
+      drawVertices(s["vertices"]);
+      // drawMovers(s.movers);
+    }
+  };
+
+  const addVertex = (_shape, _vertex) => {
+    let s = shapes[`shape${_shape}`];
+    s.vertices[`u${_vertex}`] = {x: p.mouseX, y: p.mouseY}
+  };
+
+  const addMovers = (_shape, _vertex) => {
+    let s = shapes[`shape${_shape}`];
+    // for each vertex pair, add `n` movers
+    if ( Object.keys(s.vertices).length > 1 ) {
+      for ( let i = 0; i < vertexIndex; i++ ) {
+        s.movers.push( new Mover(`u${vertexIndex}u${i}`, s.vertices[`u${vertexIndex}`], s.vertices[`u${i}`], 0) );
+      }
     }
   };
 
@@ -113,12 +122,20 @@ const number3 = (p) => {
     p.push();
     p.noStroke();
     p.fill(255);
-    for (const u in vertices ) {
+    for (const u in _vertices ) {
       p.push();
-        p.translate(vertices[u]["x"], vertices[u]["y"]);
+        p.translate(_vertices[u]["x"], _vertices[u]["y"]);
         p.circle( 0, 0, 1 );
-      // p.text(`${u}: (${Math.floor(vertices[u]["x"])}, ${Math.floor(vertices[u]["y"])})`, -20, -10);
       p.pop();
+    }
+  };
+
+  const drawMovers = (_movers) => {
+    // run the movers
+    if ( _movers.length > 0 ) {
+      for ( let i = 0;  i < _movers.length; i++ ) {
+        _movers[i].run();
+      }
     }
   };
 
@@ -128,15 +145,30 @@ const number3 = (p) => {
 
   const reset = () => {
     p.background(bgColor);
-    for ( const u in vertices ) {
-      delete vertices[u];
+    for ( const s in shapes ) {
+      delete shapes[s];
     }
-    movers.length = 0;
-    click = 0;
+    shapeIndex = 0;
+    newShape();
+  };
+
+  const newShape = () => {
+    vertexIndex = 0;
+    shapes[`shape${shapeIndex}`] = {
+      vertices: {},
+      movers: [],
+    }
+    shapeIndex++;
+  };
+
+  const printShapes = () => {
+    console.log( shapes );
   };
 
   p.keyPressed = () => {
     (( p.keyCode === 32 ) && (reset()));
+    (( p.keyCode === 78 ) && (newShape()));
+    (( p.keyCode === 80 ) && (printShapes()));
   };
 };
 
