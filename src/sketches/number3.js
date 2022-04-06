@@ -45,7 +45,6 @@ const number3 = (p) => {
     }
   }
 
-
   // create an array of the color names
   const colorKeys = Object.keys(colors);
   // remove opacity from array
@@ -69,8 +68,6 @@ const number3 = (p) => {
     fgColor = p.color(white.h, white.s, white.b, white.a);
 
     p.ellipseMode(p.RADIUS);
-
-    // p.noCursor();
     p.frameRate(30);
 
     // start with a shape
@@ -97,10 +94,8 @@ const number3 = (p) => {
     blurHSB(p, black.h, black.s, black.b, a.low);
 
     // run each shape
-    for ( const s in shapes ) {
-      drawVertices(s["vertices"]);
-      // drawMovers(s.movers);
-    }
+    drawVertices();
+    drawMovers();
   };
 
   const addVertex = (_shape, _vertex) => {
@@ -118,23 +113,30 @@ const number3 = (p) => {
     }
   };
 
-  const drawVertices = (_vertices) => {
-    p.push();
-    p.noStroke();
-    p.fill(255);
-    for (const u in _vertices ) {
+  const drawVertices = () => {
+    for ( const s in shapes ) {
+      let v = shapes[s]["vertices"];
       p.push();
-        p.translate(_vertices[u]["x"], _vertices[u]["y"]);
-        p.circle( 0, 0, 1 );
+      p.noStroke();
+      p.fill(255);
+      for (const u in v ) {
+        p.push();
+          p.translate(v[u]["x"], v[u]["y"]);
+          p.circle( 0, 0, 1 );
+        p.pop();
+      }
       p.pop();
     }
   };
 
-  const drawMovers = (_movers) => {
-    // run the movers
-    if ( _movers.length > 0 ) {
-      for ( let i = 0;  i < _movers.length; i++ ) {
-        _movers[i].run();
+  // run the movers
+  const drawMovers = () => {
+    for ( const s in shapes ) {
+      let m = shapes[s]["movers"];
+      if ( m.length > 0 ) {
+        for ( let i = 0;  i < m.length; i++ ) {
+          m[i].run();
+        }
       }
     }
   };
