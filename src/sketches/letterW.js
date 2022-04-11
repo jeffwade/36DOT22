@@ -8,7 +8,7 @@ import _5 from './images/letterW5.jpg';
 import _6 from './images/letterW6.jpg';
 
 
-const letterN = (p) => {
+const letterW = (p) => {
   initializeCanvas(p);
 
   // create an array of the color names
@@ -55,7 +55,7 @@ const letterN = (p) => {
   let r = 12;
   let c = [ 300, 89, 74, 70 ];
   p.draw = () => {
-    let index = Math.floor(p.map(p.mouseX, 0, p.width, 0, 5, true));
+    let index = Math.floor(p.map(p.mouseX, 0.15*p.width, 0.85*p.width, 0, images.length - 1, true));
     p.image(images[index], 0, 0, p.width, p.height);
     p.push();
     p.fill(255, 60);
@@ -77,4 +77,4 @@ const letterN = (p) => {
   }
 };
 
-export default letterN;
+export default letterW;
