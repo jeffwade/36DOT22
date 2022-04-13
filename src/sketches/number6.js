@@ -126,7 +126,6 @@ const number6 = (p) => {
     for ( const h in hexes ) {
       delete hexes[h];
     }
-    p.setup();
   };
 
   const print = () => {
